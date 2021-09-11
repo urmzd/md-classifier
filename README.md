@@ -1,6 +1,6 @@
 # What Symptom?
 
-A model which predicts the symptom described by the user.
+A model which predicts an ailment given a description of symptoms.
 
 ## Table of Contents
 
