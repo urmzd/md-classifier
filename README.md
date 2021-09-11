@@ -16,4 +16,5 @@ implement this functionality, we may use a Naive Bayes model or a Recurrent Neur
 An example of this would go as such:
 
 > Input: My heading is hurting.
+
 > Output: HEADACHE
