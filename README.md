@@ -1,4 +1,4 @@
-# What Symptom?
+# nlp-md
 
 A model which predicts an ailment given a description of symptoms.
 
