@@ -1,6 +1,6 @@
-# nlp-md
+# MD NLP
 
-A model which predicts an ailment given a description of symptoms.
+An NLP model which predicts an ailment given a description of symptoms.
 
 ## Table of Contents
 
