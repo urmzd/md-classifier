@@ -18,3 +18,7 @@ An example of this would go as such:
 > Input: My heading is hurting.
 
 > Output: HEADACHE
+
+## Resources
+
+- [Auto Completion](https://modeling-languages.com/nlp-architecture-model-autocompletion-domain/)
