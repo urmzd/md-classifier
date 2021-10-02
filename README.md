@@ -4,7 +4,8 @@ An NLP model which predicts an ailment given a description of symptoms.
 
 ## Table of Contents
 
-### - [Proposal](#proposal)
+- [Proposal](#proposal)
+- [Building](#building)
 
 ## Proposal
 
@@ -18,6 +19,10 @@ An example of this would go as such:
 > Input: My heading is hurting.
 
 > Output: HEADACHE
+
+## Building
+
+Execute `source venv/bin/activate` to begin using the development environment.
 
 ## Resources
 
