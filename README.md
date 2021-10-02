@@ -23,6 +23,7 @@ An example of this would go as such:
 ## Building
 
 Execute `source venv/bin/activate` to begin using the development environment.
+To exit the development environment, execute `deactivate`.
 
 ## Resources
 
