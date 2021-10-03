@@ -5,6 +5,7 @@ An NLP model which predicts an ailment given a description of symptoms.
 ## Table of Contents
 
 - [Proposal](#proposal)
+- [Building](#building)
 
 ## Proposal
 
@@ -18,6 +19,13 @@ An example of this would go as such:
 > Input: My heading is hurting.
 
 > Output: HEADACHE
+
+## Building
+
+- To enter the development environment, execute `source venv/bin/activate`.
+- To exit the development environment, execute `deactivate`.
+- To ensure dependencies are installed, execute `pip install -r requirements.txt`.
+- To ensure dependencies are added to requirements, execute `pip freeze > requirement.txt`.
 
 ## Resources
 
