@@ -24,6 +24,8 @@ An example of this would go as such:
 
 - To enter the development environment, execute `source venv/bin/activate`.
 - To exit the development environment, execute `deactivate`.
+- To ensure dependencies are installed, execute `pip install -r requirements.txt`.
+- To ensure dependencies are added to requirements, execute `pip freeze > requirement.txt`.
 
 ## Resources
 
