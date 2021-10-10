@@ -20,6 +20,10 @@ An example of this would go as such:
 
 > Output: HEADACHE
 
+## Problem Statement
+
+A recent study has found that approximately 89% of patients across the United States research their symptoms as a preliminary action prior to seeking professional advice. Problems arise, however, when a series of articles the individual reads are contradictory. This can create a sense of confusion and concern in the user. In our research we will implement a solution to this issue by developing an algorithm that will, based on the user's text description of their symptoms, classify the most likely ailment they are experiencing.
+
 ## Building
 
 - To enter the development environment, execute `source venv/bin/activate`.
@@ -33,3 +37,4 @@ An example of this would go as such:
 - [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 - [n-gram](https://en.wikipedia.org/wiki/N-gram#:~:text=In%20the%20fields%20of%20computational,a%20text%20or%20speech%20corpus.)
 - [Context Analysis](http://www.lexalytics.com/lexablog/context-analysis-nlps)
+- [Problem Statement](https://www.wect.com/2019/06/24/study-finds-us-citizens-turn-google-before-their-doctor/)
