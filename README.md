@@ -31,4 +31,5 @@ An example of this would go as such:
 
 - [Auto Completion](https://modeling-languages.com/nlp-architecture-model-autocompletion-domain/)
 - [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
-- [`n`-gram](https://en.wikipedia.org/wiki/N-gram#:~:text=In%20the%20fields%20of%20computational,a%20text%20or%20speech%20corpus.)
+- [n-gram](https://en.wikipedia.org/wiki/N-gram#:~:text=In%20the%20fields%20of%20computational,a%20text%20or%20speech%20corpus.)
+- [Context Analysis](http://www.lexalytics.com/lexablog/context-analysis-nlps)
