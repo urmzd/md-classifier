@@ -6,6 +6,7 @@ An NLP model which predicts an ailment given a description of symptoms.
 
 - [Proposal](#proposal)
 - [Building](#building)
+- [Testing](#testing)
 
 ## Proposal
 
@@ -27,6 +28,14 @@ An example of this would go as such:
 - To exit the development environment, execute `deactivate`.
 - To ensure dependencies are installed, execute `pip install -r requirements.txt`.
 - To ensure dependencies are added to requirements, execute `pip freeze > requirement.txt`.
+
+## Testing
+
+This project uses `pytest` for its unit-tests.
+To find more information about the configuration used, check `./pytest.ini`.
+
+In general, all tests must be prefixed with `given_` under the `tests` directory (found in the root dir)
+and within a file which started with the `test_` prefix.
 
 ## Resources
 

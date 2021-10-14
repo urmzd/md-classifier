@@ -1,14 +1,9 @@
 #!/usr/bin/env python
-# Create types.
-from typing import Optional, Tuple, List
+from typing import Optional, List
 from bs4 import BeautifulSoup
 from pandas.core.frame import DataFrame
 import requests
 import pandas as pd
-
-Link = str
-Selector = str
-LinkSelectorPair = Tuple[Link, Selector]
 
 
 def get_df_from_csv(
