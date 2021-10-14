@@ -11,13 +11,15 @@ def get_df_from_csv(
 ) -> Optional[DataFrame]:
     df = pd.read_csv(file_ref)
 
-    if isinstance(df, DataFrame):
-        # Strip white space from column data.
-        print(df)
-        df.columns = df.columns.str.strip()
-        return df
+    try:
+        if isinstance(df, DataFrame):  # Strip white space from column data.
+            print(df)
+            df.columns = df.columns.str.strip()
+            return df
 
-    return None
+        return None
+    except:
+        return None
 
 
 def get_html(link: str, selector: str) -> List[str]:
