@@ -8,3 +8,6 @@ def given_file_ref_when_loaded_then_data_frame_is_returned():
     file_ref = os.path.join(current_file_ref, "../resources/sources/headache.csv")
 
     assert isinstance(get_df_from_csv(file_ref), DataFrame) == True
+
+def given_invalid_file_ref_when_loaded_then_none_is_returned():
+    assert get_df_from_csv('') == None
