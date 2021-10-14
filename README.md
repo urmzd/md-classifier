@@ -37,6 +37,8 @@ To find more information about the configuration used, check `./pytest.ini`.
 In general, all tests must be prefixed with `given_` under the `tests` directory (found in the root dir)
 and within a file which started with the `test_` prefix.
 
+To run the tests, ensure you are in the virtual enviroment and execute `pytest`
+
 ## Resources
 
 - [Auto Completion](https://modeling-languages.com/nlp-architecture-model-autocompletion-domain/)
