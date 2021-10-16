@@ -1,19 +1,23 @@
 #!/usr/bin/env python
-from typing import Optional, List
+from typing import Callable, Optional, List
 from bs4 import BeautifulSoup
 from pandas.core.frame import DataFrame
 import requests
 import pandas as pd
 
+# Type definitions.
+Selector = str
+Link = str
+FilePath = str
+GetHtmlCallable = Callable[[str, str], List[str]]
+
 
 def get_df_from_csv(
-    file_ref: str = "../resources/sources/headache.csv",
+    file_path: FilePath = "../resources/sources/headache.csv",
 ) -> Optional[DataFrame]:
-    df = pd.read_csv(file_ref)
-
     try:
+        df = pd.read_csv(file_path)
         if isinstance(df, DataFrame):  # Strip white space from column data.
-            print(df)
             df.columns = df.columns.str.strip()
             return df
 
@@ -22,7 +26,7 @@ def get_df_from_csv(
         return None
 
 
-def get_html(link: str, selector: str) -> List[str]:
+def get_html(link: Link, selector: Selector) -> List[str]:
     html_main = BeautifulSoup(
         requests.get(link).text, features="html.parser"
     ).select_one(selector)
@@ -33,7 +37,7 @@ def get_html(link: str, selector: str) -> List[str]:
     return []
 
 
-def get_html_from_df(df: Optional[DataFrame]):
+def get_html_from_df(df: Optional[DataFrame], get_html: GetHtmlCallable = get_html):
     if df is not None:
         return [
             body_text
