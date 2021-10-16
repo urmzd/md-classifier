@@ -15,24 +15,20 @@ GetHtmlCallable = Callable[[str, str], List[str]]
 def get_df_from_csv(
     file_path: FilePath = "../resources/sources/headache.csv",
 ) -> Optional[DataFrame]:
-    try:
-        df = pd.read_csv(file_path)
-        if isinstance(df, DataFrame):  # Strip white space from column data.
-            df.columns = df.columns.str.strip()
-            return df
+    df = pd.read_csv(file_path)
+    if isinstance(df, DataFrame):
+        df.columns = df.columns.str.strip()
+        return df
 
-        return None
-    except:
-        return None
+    return None
 
 
 def get_html(link: Link, selector: Selector) -> List[str]:
-    html_main = BeautifulSoup(
-        requests.get(link).text, features="html.parser"
-    ).select_one(selector)
+    html_full = BeautifulSoup(requests.get(link).text, features="html.parser")
+    html_body = html_full.select_one(selector)
 
-    if html_main:
-        return [html_text.get_text() for html_text in html_main.find_all(text=True)]
+    if html_body:
+        return [html_text.get_text() for html_text in html_body.find_all(text=True)]
 
     return []
 
