@@ -2,6 +2,7 @@
 from typing import List
 from bs4 import BeautifulSoup
 from pandas.core.frame import DataFrame
+from utils import output_text_to_file_ref, create_csv_string, split_words_by_whitespace
 import requests
 import pandas as pd
 
@@ -9,6 +10,7 @@ import pandas as pd
 Selector = str
 Link = str
 FilePath = str
+
 
 def get_df_from_csv(
     file_path: FilePath = "../resources/sources/headache.csv",
@@ -44,8 +46,6 @@ def get_html_from_df(df: DataFrame):
         for r_i in range(len(df))
         for body_text in get_html(df.iloc[r_i, 1], df.iloc[r_i, 0])
     ]
-
-
 
 
 if __name__ == "__main__":
