@@ -23,7 +23,13 @@ An example of this would go as such:
 
 ## Problem Statement
 
-A recent study has found that approximately 89% of patients across the United States research their symptoms as a preliminary action prior to seeking professional advice. Problems arise, however, when a series of articles the individual reads are contradictory. This can create a sense of confusion and concern in the user. In our research we will implement a solution to this issue by developing an algorithm that will, based on the user's text description of their symptoms, classify the most likely ailment they are experiencing.
+A recent study has found that approximately 89% of patients across the United States
+research their symptoms as a preliminary action prior to seeking professional advice.
+Problems arise, however, when a series of articles the individual reads are contradictory.
+This can create a sense of confusion and concern in the user.
+In our research we will implement a solution to this issue by developing an algorithm that will,
+based on the user's text description of their symptoms, classify the most likely ailment
+they are experiencing.
 
 ## Building
 
