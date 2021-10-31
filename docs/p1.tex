@@ -22,10 +22,19 @@ In our research we will implement a solution to this issue by developing an algo
 based on the user's text description of their symptoms, classify the most likely ailment
 they are experiencing.
 
-\section{\MakeTextUppercase{Potential Model 1}}
-Character n-grams is a potential path this project could follow. 
-Recently, character n-gram have demonstrated the ability to categorize.
+\section{\MakeTextUppercase{Neural Networks}}
+Neural Networks provide a promising method of determining the user’s ailment given a description of their symptoms.
+There are, however, several variations in which the model can be constructed.
+Kurup and Shetty developed a chatbot that would prompt the user to provide descriptions of their experienced symptoms.
+Based on this input, they utilized a sequential model with alternating dense and dropout layers followed by a softmax dense layer to classify the most likely illness.
+A highlighted issue, however, was in obtaining a dataset.
+Due to privacy concerns and a large variation in disease symptoms and severity, finding a large enough dataset to train the neural network could prove challenging.
+Kurup and Shetty utilized a medical database which included descriptions of illnesses, however the efficacy of the model may be impacted through the use of informal terminology by users of what they are experiencing.
+Another model developed by Baker et al. involved the use of a Convolutional Neural Network trained with biomedical publication abstracts that would conduct multi-label classification to determine whether the text contained any of a selected ten hallmarks of cancer.
+In this paper, the CNN’s performance was compared to that of a Support Vector Machine (SVM), and found to be more accurate.
+The added benefit of using a CNN would be the effective pattern recognition capabilities they provide through their convolution and pooling layers, leading to their frequent use in image and text classification.
 
-
+\section{\MakeTextUppercase{n-Grams and Naive Bayes}}
+Character n-grams have been shown the ability to classify documents into various topics.
 
 \end{document}

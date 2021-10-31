@@ -5,7 +5,7 @@ venv/
 **/__pycache__
 
 # Ignore LaTex build files
-docs/n-gram-approach/*
+docs/*
 !*.pdf
 !*.tex
 
