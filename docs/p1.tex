@@ -1,4 +1,4 @@
-\documentclass[10pt, final, comsoc, conference]{IEEEtran}
+\documentclass[12pt, final, onecolumn, comsoc, conference]{IEEEtran}
 \usepackage{textcase}
 
 \begin{document}
@@ -34,7 +34,23 @@ Another model developed by Baker et al. involved the use of a Convolutional Neur
 In this paper, the CNN’s performance was compared to that of a Support Vector Machine (SVM), and found to be more accurate.
 The added benefit of using a CNN would be the effective pattern recognition capabilities they provide through their convolution and pooling layers, leading to their frequent use in image and text classification.
 
-\section{\MakeTextUppercase{n-Grams and Naive Bayes}}
-Character n-grams have been shown the ability to classify documents into various topics.
+\section{\MakeTextUppercase{N-Gram Language Model}}
+N-gram language models have been shown to have varying degree of effectiveness in topic categorization,
+authorship attribution and sentiment analysis, among other research topics [1]. In particular, N-gram language
+models have demonstrated the capability to extract general concepts from pathology reports [2].
+The proof-of-concept provided by Yip et al. warrants an exploration into the use of N-gram language models
+in another medicine-related problem, predicting ailments from a description of symptoms.
+However, the existance of a medicine related N-gram language model does not guarantee that any
+meaningful results will be produced in this project. This is partially due to the fact that
+the datasets of Yip et al. and the project's expected dataset will differ greatly in domain. 
+To explain, the expected dataset of this project will consist
+of client testimonies in medical shows, which is written to resemble the general public, 
+whereas the documents used in Yip et al. are from University
+pathology reports, which are meant to provide domain specific information to researchers and doctors.
+We believe that this discrepency may pose as obstacle when attempting to replicate similar result  
+to Yip et al.
+
+\section{\MakeUppercase{Next Steps}}
+
 
 \end{document}
