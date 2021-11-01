@@ -36,19 +36,22 @@ The added benefit of using a CNN would be the effective pattern recognition capa
 
 \section{\MakeTextUppercase{N-Gram Language Model}}
 N-gram language models have been shown to have varying degree of effectiveness in topic categorization,
-authorship attribution and sentiment analysis, among other research topics [1]. In particular, N-gram language
-models have demonstrated the capability to extract general concepts from pathology reports [2].
+authorship attribution and sentiment analysis, among other research topics [1]. In particular, an N-gram language
+model recently demonstrated the capability to extract general concepts from pathology reports [2].
 The proof-of-concept provided by Yip et al. warrants an exploration into the use of N-gram language models
 in another medicine-related problem, predicting ailments from a description of symptoms.
 However, the existance of a medicine related N-gram language model does not guarantee that any
-meaningful results will be produced in this project. This is partially due to the fact that
-the datasets of Yip et al. and the project's expected dataset will differ greatly in domain. 
-To explain, the expected dataset of this project will consist
-of client testimonies in medical shows, which is written to resemble the general public, 
-whereas the documents used in Yip et al. are from University
-pathology reports, which are meant to provide domain specific information to researchers and doctors.
-We believe that this discrepency may pose as obstacle when attempting to replicate similar result  
-to Yip et al.
+meaningful results will be produced through the application of a N-gram language model in this project.
+This is partially due to the fact that the datasets of Yip et al. and the project's expected dataset will differ greatly in domain.
+To explain, the expected dataset of this project will consist of client testimonies from medical shows,
+which contains written text meant to resemble speech from the general public,
+whereas the documents used in Yip et al. are from University pathology reports,
+which provide domain specific information to researchers and doctors.
+We believe that this discrepency may prevent progress as the domain-specific language used in reports
+is designed to ensure that a diagnois is clearly pursued, whereas description of symptoms can vary greatly
+in the general public. One possible solution may involve the use of smoothing. By assigining non-zero
+probabilities to various n-grams, we can reduce the negative impact of an unknown context.  
+
 
 \section{\MakeUppercase{Next Steps}}
 
