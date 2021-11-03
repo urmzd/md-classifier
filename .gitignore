@@ -2,4 +2,11 @@
 venv/
 
 # Ignore cache.
-**/__pycache__/
+**/__pycache__
+
+# Ignore LaTex build files
+docs/*
+!*.pdf
+!*.tex
+!*.bib
+
