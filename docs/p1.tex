@@ -1,5 +1,6 @@
 \documentclass[12pt, final, onecolumn, comsoc, conference]{IEEEtran}
 \usepackage{textcase}
+\bibliographystyle{IEEEtran}
 
 \begin{document}
 \title{Ailment Classification Given Description of Symptoms}
@@ -13,7 +14,7 @@
 }
 
 \maketitle
-\section{\MakeTextUppercase{Introduction}}
+\section{Introduction}
 A recent study has found that approximately 89\% of patients across the United States
 research their symptoms as a preliminary action prior to seeking professional advice.
 Problems arise, however, when a series of articles the individual reads are contradictory.
@@ -22,7 +23,7 @@ In our research we will implement a solution to this issue by developing an algo
 based on the user's text description of their symptoms, classify the most likely ailment
 they are experiencing.
 
-\section{\MakeTextUppercase{Neural Networks}}
+\section{Neural Networks}
 Neural Networks provide a promising method of determining the user’s ailment given a description of their symptoms.
 There are, however, several variations in which the model can be constructed.
 Kurup and Shetty developed a chatbot that would prompt the user to provide descriptions of their experienced symptoms.
@@ -34,10 +35,10 @@ Another model developed by Baker et al. involved the use of a Convolutional Neur
 In this paper, the CNN’s performance was compared to that of a Support Vector Machine (SVM), and found to be more accurate.
 The added benefit of using a CNN would be the effective pattern recognition capabilities they provide through their convolution and pooling layers, leading to their frequent use in image and text classification.
 
-\section{\MakeTextUppercase{N-Gram Language Model}}
+\section{N-Gram Language Model}
 N-gram language models have been shown to have varying degrees of effectiveness in topic categorization,
-authorship attribution and sentiment analysis, among other research topics [1]. In particular, an N-gram language
-model recently demonstrated the capability to extract general concepts from pathology reports [2].
+authorship attribution and sentiment analysis, among other research topics \cite{n-gram-analysis}. In particular, an N-gram language
+model recently demonstrated the capability to extract general concepts from pathology reports \cite{yip}.
 The proof-of-concept provided by Yip et al. warrants an exploration into the use of N-gram language models
 in another medicine-related problem, predicting ailments from a description of symptoms.
 However, the existance of a medicine-related N-gram language model does not guarantee that any
@@ -52,9 +53,11 @@ We believe that this discrepency may prevent progress as the domain-specific lan
 is designed to ensure that a diagnois is clearly pursued, whereas description of symptoms can vary greatly
 in the general public, and can often be vague without leading questions.
 One possible solution may involve the use of smoothing. By assigining non-zero
-probabilities to various n-grams, we can reduce the negative impact when applying the model in unknown contexts.
+probabilities to various n-grams, we can reduce the negative impact when applying the model in unknown contexts \cite{class}.
 
-\section{\MakeUppercase{Next Steps}}
+\section{Next Steps}
+The next steps involve Ben doing the rest of the work. I'll just watch.
 
+\bibliography{p1}
 
 \end{document}

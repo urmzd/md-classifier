@@ -8,4 +8,5 @@ venv/
 docs/*
 !*.pdf
 !*.tex
+!*.bib
 
