@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+
+      - name: Run script
         run: chmod u+x ./scripts/compile-latex.sh && ./script/compile-latex.sh
         shell: bash
 
