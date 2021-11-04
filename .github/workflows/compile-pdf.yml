@@ -8,7 +8,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run script
-        run: chmod u+x ./scripts/compile-latex.sh && ./script/compile-latex.sh
+        run: chmod u+x ./scripts/compile-latex.sh && ./scripts/compile-latex.sh
         shell: bash
 
       - uses: EndBug/add-and-commit@v7
