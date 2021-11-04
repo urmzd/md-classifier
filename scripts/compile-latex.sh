@@ -1,44 +1,43 @@
 #!/usr/bin/bash
 
 # Install dependencies.
-sudo apt-get install -y bibtex pdflatex texlive-full
+sudo apt-get install -y texlive-full
 
-# Change directories
-cd docs
-
-# Save current directory
+# Save directory where bash is ran
 wd=$(pwd) 
 
 function compile-latex {
-  # Go to directory with .tex
-  cwd = $(dirname "$2")
-  cd $cwd
+  cwd=$(dirname "$2")
+
+  cd "$cwd"
 
   texs=( *.tex )
   _bibs=( *.bib )
   bibs="${_bibs[@]%%.*}"
 
+
   # compilation
-  for tex in ${tex[@]}; do
-    pdflatex tex
+  for tex in ${texs[@]}; do
+    echo $tex
+    pdflatex $tex 
   done
 
-  for bib in ${bib[@]}; do
-    bibtex bib 
+  for bib in ${bibs[@]}; do
+    bibtex $bib
   done
 
-  for tex in ${tex[@]}; do
-    pdflatex tex
+  for tex in ${texs[@]}; do
+    pdflatex $tex
   done
 
-  for tex in ${tex[@]}; do
-    pdflatex tex
+  for tex in ${texs[@]}; do
+    pdflatex $tex
   done
 
   pdfs=( *.pdf )
 
   for pdf in ${pdfs[@]}; do
-    cp pdf cwd
+    cp $pdf $1
   done
   
   # Go back home
@@ -46,4 +45,4 @@ function compile-latex {
 }
 
 # Compile all docs for all tex files
-find docs -name '*.pdf' | while read file; do compile-latex $wd $file; done
+find docs -name '*.tex' | while read file; do compile-latex $wd $file; done
