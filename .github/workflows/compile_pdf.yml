@@ -6,17 +6,9 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
-      - name: Install pdf compiler and dependencies
-        run: sudo apt-get install -y pdflatex texlive-full
+        run: chmod u+x ./scripts/compile-latex.sh && ./script/compile-latex.sh
+        shell: bash
 
       - uses: EndBug/add-and-commit@v7
-        working-directory: docs
-        run: 
         with:
           message: Build latest pdf of proposal
-
-
-
-
-
