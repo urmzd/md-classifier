@@ -1,0 +1,16 @@
+name: Build PDF
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Run script
+        run: chmod u+x ./scripts/compile-latex.sh && ./scripts/compile-latex.sh
+        shell: bash
+
+      - uses: EndBug/add-and-commit@v7
+        with:
+          message: Build latest pdf of proposal
