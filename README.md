@@ -25,7 +25,7 @@ An example of this would go as such:
 
 ## Building
 
-- To create a virtual enviroment, execute `python3 -m venv`
+- To create a virtual enviroment, execute `python3 -m venv venv`
 - To enter the development environment, execute `source venv/bin/activate`.
 - To exit the development environment, execute `deactivate`.
 - To ensure dependencies are installed, execute `pip install -r requirements.txt`.
