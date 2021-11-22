@@ -1,6 +1,6 @@
 selector,link
 #topicText,https://www.uptodate.com/contents/depression-the-basics?search=Patient%20education&source=search_result&selectedTitle=15~150&usage_type=default&display_rank=15 
-#mw-content-text > div.mw-parser-output,https://simple.wikipedia.org/wiki/Migraine
+#mw-content-text,http://en.wikipedia.org/wiki/Migraines
 #main-content > div:nth-child(1) > div.content > div.contentbox,https://www.mayoclinic.org/diseases-conditions/migraine-headache/symptoms-causes/syc-20360201
 
 
