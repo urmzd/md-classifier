@@ -31,6 +31,7 @@ An example of this would go as such:
   pip install -r requirements.txt
   pip install ipykernel
   python -m ipykernel install --user --name=venv
+  jupyter contrib nbextension install --user
 ```
 
 ### Tear Down
