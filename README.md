@@ -25,11 +25,19 @@ An example of this would go as such:
 
 ## Building
 
-- To create a virtual enviroment, execute `python3 -m virtualenv venv`
-- To enter the development environment, execute `source venv/bin/activate`.
-- To exit the development environment, execute `deactivate`.
-- To ensure dependencies are installed, execute `pip install -r requirements.txt`.
-- To ensure dependencies are added to requirements, execute `pip freeze > requirement.txt`.
+### Set Up 
+```bash
+  python -m virtualenv venv
+  pip install -r requirements.txt
+  pip install ipykernel
+  python -m ipykernel install --name=venv
+```
+
+### Tear Down
+```bash
+  pip freeze > requirements.txt 
+  deactivate
+```
 
 ## Testing
 
