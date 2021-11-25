@@ -30,7 +30,7 @@ An example of this would go as such:
   python -m virtualenv venv
   pip install -r requirements.txt
   pip install ipykernel
-  python -m ipykernel install --user --name=venv
+  python -m ipykernel install --user --name=mdnlp
   jupyter contrib nbextension install --user
 ```
 
@@ -38,6 +38,7 @@ An example of this would go as such:
 ```bash
   pip freeze > requirements.txt 
   deactivate
+  jupyter kernelspec uninstall mdnlp
 ```
 
 ## Testing
