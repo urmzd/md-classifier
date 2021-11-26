@@ -30,8 +30,12 @@ An example of this would go as such:
   python -m virtualenv venv
   pip install -r requirements.txt
   pip install ipykernel
+  pip install jupyter-tabnine
   python -m ipykernel install --user --name=mdnlp
   jupyter contrib nbextension install --user
+  jupyter nbextension install --py --user jupyter_tabnine
+  jupyter nbextension enable --py --user jupyter_tabnine 
+  jupyter serverextension enable --py jupyter_tabnine
 ```
 
 ### Tear Down
