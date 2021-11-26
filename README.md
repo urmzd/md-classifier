@@ -25,11 +25,25 @@ An example of this would go as such:
 
 ## Building
 
-- To create a virtual enviroment, execute `python3 -m venv venv`
-- To enter the development environment, execute `source venv/bin/activate`.
-- To exit the development environment, execute `deactivate`.
-- To ensure dependencies are installed, execute `pip install -r requirements.txt`.
-- To ensure dependencies are added to requirements, execute `pip freeze > requirement.txt`.
+### Set Up 
+```bash
+  python -m virtualenv venv
+  pip install -r requirements.txt
+  pip install ipykernel
+  pip install jupyter-tabnine
+  python -m ipykernel install --user --name=mdnlp
+  jupyter contrib nbextension install --user
+  jupyter nbextension install --py --user jupyter_tabnine
+  jupyter nbextension enable --py --user jupyter_tabnine 
+  jupyter serverextension enable --py jupyter_tabnine
+```
+
+### Tear Down
+```bash
+  pip freeze > requirements.txt 
+  deactivate
+  jupyter kernelspec uninstall mdnlp
+```
 
 ## Testing
 
