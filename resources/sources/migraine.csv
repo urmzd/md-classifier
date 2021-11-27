@@ -2,10 +2,10 @@ selector,link
 #topicText,https://www.uptodate.com/contents/depression-the-basics?search=Patient%20education&source=search_result&selectedTitle=15~150&usage_type=default&display_rank=15 
 #mw-content-text,http://en.wikipedia.org/wiki/Migraines
 #main-content > div:nth-child(1) > div.content > div.contentbox,https://www.mayoclinic.org/diseases-conditions/migraine-headache/symptoms-causes/syc-20360201
-#,https://www.nhs.uk/conditions/migraine/symptoms
-#,https://familydoctor.org/condition/migraines
-#,https://www.healthline.com/health/migraine-symptoms#recovery-stage
-#,https://www.medicalnewstoday.com/articles/148373#_noHeaderPrefixedContent
-#,https://www.hopkinsmedicine.org/health/conditions-and-diseases/headache/migraine-headaches
-#,https://www.everydayhealth.com/migraine/guide/
-#,https://www.verywellhealth.com/symptoms-of-migraine-1718209
+#maincontent > article > div > div,https://www.nhs.uk/conditions/migraine/symptoms
+##symptoms > div > div > section > div > div > div,https://familydoctor.org/condition/migraines
+##__next > div.css-fdjy12 > div.css-stl7tm > div > div > div:nth-child(3) > article,https://www.healthline.com/health/migraine-symptoms#recovery-stage
+##__next > div.css-fdjy12 > div.css-stl7tm > div > div > div:nth-child(3) > article,https://www.medicalnewstoday.com/articles/148373#_noHeaderPrefixedContent
+##skip > div:nth-child(1) > article > div:nth-child(6),https://www.hopkinsmedicine.org/health/conditions-and-diseases/headache/migraine-headaches
+#body > main > article > div.article-template__body > div > div.row.article-template__row--right-rail > div.col-lg-8.article-template__main,https://www.everydayhealth.com/migraine/guide/
+#article_1-0,https://www.verywellhealth.com/symptoms-of-migraine-1718209
