@@ -2,5 +2,10 @@ selector,link
 #topicText,https://www.uptodate.com/contents/depression-the-basics?search=Patient%20education&source=search_result&selectedTitle=15~150&usage_type=default&display_rank=15 
 #mw-content-text,http://en.wikipedia.org/wiki/Migraines
 #main-content > div:nth-child(1) > div.content > div.contentbox,https://www.mayoclinic.org/diseases-conditions/migraine-headache/symptoms-causes/syc-20360201
-
-
+#,https://www.nhs.uk/conditions/migraine/symptoms
+#,https://familydoctor.org/condition/migraines
+#,https://www.healthline.com/health/migraine-symptoms#recovery-stage
+#,https://www.medicalnewstoday.com/articles/148373#_noHeaderPrefixedContent
+#,https://www.hopkinsmedicine.org/health/conditions-and-diseases/headache/migraine-headaches
+#,https://www.everydayhealth.com/migraine/guide/
+#,https://www.verywellhealth.com/symptoms-of-migraine-1718209

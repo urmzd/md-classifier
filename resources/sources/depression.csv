@@ -2,3 +2,10 @@ selector,link
 #topicText,https://www.uptodate.com/contents/depression-the-basics?search=Patient%20education&source=search_result&selectedTitle=15~150&usage_type=default&display_rank=15
 #mw-content-text,https://simple.wikipedia.org/wiki/Depression_(mental_illness)
 #main-content > div:nth-child(1) > div.content > div:nth-child(3),https://www.mayoclinic.org/diseases-conditions/depression/symptoms-causes/syc-20356007
+#,https://www.nhs.uk/mental-health/conditions/clinical-depression/symptoms
+#,https://familydoctor.org/condition/depression/
+#,https://www.healthline.com/health/depression#symptoms
+#,https://www.medicalnewstoday.com/articles/321385#signs-and-symptoms
+#,https://www.hopkinsmedicine.org/health/conditions-and-diseases/depression
+#,https://www.childrenshospital.org/conditions-and-treatments/conditions/d/depression
+#,https://www.verywellmind.com/what-is-moderate-depression-5072794
