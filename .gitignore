@@ -4,6 +4,9 @@ venv/
 # Ignore cache.
 **/__pycache__
 
+# Ignore checkpoints.
+**/.ipynb_checkpoints
+
 # Ignore LaTex build files
 docs/*
 !*.pdf
