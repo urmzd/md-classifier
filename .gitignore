@@ -7,6 +7,12 @@ venv/
 # Ignore checkpoints.
 **/.ipynb_checkpoints
 
+# Ignore collector.
+src/collector/**/*
+
+# Ignore swap files.
+**/*.swp
+
 # Ignore LaTex build files
 docs/*
 !*.pdf
