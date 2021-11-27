@@ -28,6 +28,7 @@ An example of this would go as such:
 ### Set Up 
 ```bash
   python -m virtualenv venv
+  source venv/bin/activate
   pip install --no-deps -r requirements.txt
   pip install ipykernel
   pip install jupyter-tabnine
