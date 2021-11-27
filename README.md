@@ -28,7 +28,7 @@ An example of this would go as such:
 ### Set Up 
 ```bash
   python -m virtualenv venv
-  pip install -r requirements.txt
+  pip install -r --no-dep requirements.txt
   pip install ipykernel
   pip install jupyter-tabnine
   python -m ipykernel install --user --name=mdnlp
