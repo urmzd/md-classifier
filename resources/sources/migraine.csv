@@ -3,7 +3,7 @@ selector,link
 #main-content,https://www.mayoclinic.org/diseases-conditions/migraine-headache/symptoms-causes/syc-20360201
 #mw-content-text,http://en.wikipedia.org/wiki/Migraines
 #maincontent > article > div > div,https://www.nhs.uk/conditions/migraine/symptoms
-#symptoms > div > div > section > div > div > div,https://familydoctor.org/condition/migraines
+#overview > div > div > section,https://familydoctor.org/condition/migraines
 #__next > div.css-fdjy12 > div.css-stl7tm > div > div > div:nth-child(3) > article,https://www.healthline.com/health/migraine-symptoms#recovery-stage
 #__next > div.css-fdjy12 > div.css-stl7tm > div > div > div:nth-child(3) > article,https://www.medicalnewstoday.com/articles/148373#_noHeaderPrefixedContent
 ##skip > div:nth-child(1) > article > div:nth-child(6),https://www.hopkinsmedicine.org/health/conditions-and-diseases/headache/migraine-headaches
