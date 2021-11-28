@@ -4,6 +4,7 @@ argon2-cffi==21.1.0
 astunparse==1.6.3
 async-generator==1.10
 attrs==21.2.0
+autopep8==1.6.0
 backcall==0.2.0
 beautifulsoup4==4.10.0
 black==21.9b0
@@ -81,6 +82,7 @@ ptyprocess==0.7.0
 py==1.10.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
+pycodestyle==2.8.0
 pycparser==2.21
 pyee==8.2.2
 Pygments==2.10.0
