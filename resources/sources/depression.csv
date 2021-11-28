@@ -3,7 +3,6 @@ selector,link
 #main-content > div:nth-child(1) > div.content > div:nth-child(3),https://www.mayoclinic.org/diseases-conditions/depression/symptoms-causes/syc-20356007
 #mw-content-text,https://simple.wikipedia.org/wiki/Depression_(mental_illness)
 #maincontent,https://www.nhs.uk/mental-health/conditions/clinical-depression/symptoms
-#overview > div > div > section,https://familydoctor.org/condition/depression/
 #__next > div.css-fdjy12 > div:nth-child(5) > div > div > div > div:nth-child(3),https://www.healthline.com/health/depression#symptoms
 #__next > div.css-fdjy12 > div:nth-child(5) > div.css-stl7tm > div > div,https://www.medicalnewstoday.com/articles/321385#signs-and-symptoms
 #skip > div:nth-child(1) > article,https://www.hopkinsmedicine.org/health/conditions-and-diseases/depression
