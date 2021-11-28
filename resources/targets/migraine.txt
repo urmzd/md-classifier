@@ -365,16 +365,8 @@ simpl
 combin
 analges
 see
-'simpl
 analges
-'
-'triptan
-'
-'triptan
 nsaid
-'
-'antiemet
-'
 moder
 sever
 attack
@@ -426,20 +418,8 @@ zolmitriptan
 parenter
 dihydroergotamin
 see
-'triptan
-'
-'triptan
 nsaid
-'
-'cgrp
 antagonist
-'
-'lasmiditan
-'
-'antiemet
-'
-'ergot
-'
 statu
 migrainosu
 for
@@ -489,15 +469,7 @@ depend
 upon
 factor
 see
-'nonsteroid
 drug
-'
-'prochlorperazin
-'
-'metoclopramid
-'
-'other
-'
 administr
 parenter
 dexamethason
@@ -507,12 +479,10 @@ prevent
 attack
 relaps
 see
-'abort
 therapi
 plu
 parenter
 dexamethason
-'
 patient
 may
 requir
@@ -531,26 +501,16 @@ monitor
 withdraw
 symptom
 see
-'emerg
 set
-'
 medic
 overus
 headach
 treatment
 prognosi
 section
-'outpati
 inpati
 strategi
-'
-'antiemet
-'
-'simpl
 analges
-'
-'ergot
-'
 variabl
 attack
 mani
@@ -624,14 +584,10 @@ nonurg
 set
 outlin
 see
-'mild
 moder
 attack
-'
-'moder
 sever
 attack
-'
 obviou
 differ
 parenter
@@ -650,13 +606,9 @@ mg
 subcutan
 inject
 see
-'triptan
-'
 receptor
 blocker
 see
-'antiemet
-'
 mg
 intraven
 iv
@@ -681,8 +633,6 @@ metoclopramid
 mg
 iv
 see
-'dihydroergotamin
-'
 mg
 iv
 mg
@@ -697,9 +647,7 @@ kg
 renal
 impair
 see
-'nonsteroid
 drug
-'
 for
 patient
 present
@@ -748,8 +696,6 @@ akathisia
 dyston
 reaction
 see
-'antiemet
-'
 dihydroergotamin
 dhe
 mg
@@ -787,8 +733,6 @@ cerebrovascular
 peripher
 circul
 see
-'dihydroergotamin
-'
 for
 patient
 treat
@@ -815,12 +759,10 @@ earli
 headach
 recurr
 see
-'abort
 therapi
 plu
 parenter
 dexamethason
-'
 overus
 opioid
 medic
@@ -892,10 +834,8 @@ pregnant
 postpartum
 women
 section
-'acut
 migrain
 treatment
-'
 avoid
 medic
 overus
@@ -988,9 +928,7 @@ clinic
 featur
 diagnosi
 section
-'causal
 medic
-'
 in
 order
 prevent
@@ -2284,7 +2222,6 @@ ischem
 heart
 diseas
 prinzmet
-'s
 angina
 uncontrol
 hypertens
@@ -2712,9 +2649,7 @@ definit
 caus
 pathophysiolog
 section
-'risk
 factor
-'
 in
 contrast
 iv
@@ -2933,10 +2868,8 @@ effect
 combin
 treatment
 see
-'use
 adjunct
 therapi
-'
 other
 chlorpromazin
 ondansetron
@@ -2996,10 +2929,8 @@ manifest
 diagnosi
 manag
 section
-'precaut
 use
 drug
-'
 although
 data
 limit
@@ -3356,7 +3287,6 @@ option
 second
 dose
 patient
-'s
 rescu
 medic
 permit
@@ -3478,9 +3408,7 @@ episod
 migrain
 adult
 section
-'cgrp
 antagonist
-'
 lasmiditan
 lasmiditan
 select
@@ -3730,8 +3658,6 @@ headach
 treatment
 prognosi
 section
-'dihydroergotamin
-'
 parenter
 dihydroergotamin
 dhe
@@ -3823,8 +3749,6 @@ migrain
 use
 alon
 see
-'metoclopramid
-'
 howev
 sever
 studi
@@ -4476,8 +4400,6 @@ episod
 migrain
 adult
 section
-'neuromodul
-'
 remot
 electr
 neuromodul
@@ -5267,9 +5189,7 @@ agent
 may
 prefer
 see
-'approach
 treatment
-'
 mild
 moder
 migrain
@@ -5298,13 +5218,9 @@ rather
 agent
 grade
 see
-'mild
 moder
 attack
-'
-'simpl
 analges
-'
 for
 patient
 unrespons
@@ -5327,14 +5243,8 @@ use
 along
 analges
 see
-'triptan
 nsaid
-'
-'antiemet
-'
-'simpl
 analges
-'
 moder
 sever
 migrain
@@ -5362,15 +5272,9 @@ respond
 differ
 triptan
 see
-'moder
 sever
 attack
-'
-'triptan
-'
-'triptan
 nsaid
-'
 altern
 option
 includ
@@ -5383,15 +5287,7 @@ antiemet
 drug
 dihydroergotamin
 see
-'cgrp
 antagonist
-'
-'lasmiditan
-'
-'antiemet
-'
-'ergot
-'
 sever
 migrain
 attack
@@ -5436,13 +5332,7 @@ dyston
 reaction
 grade
 see
-'emerg
 set
-'
-'triptan
-'
-'antiemet
-'
 in
 addit
 recommend
@@ -5458,12 +5348,10 @@ headach
 recurr
 grade
 see
-'abort
 therapi
 plu
 parenter
 dexamethason
-'
 for
 patient
 ed
@@ -5489,8 +5377,6 @@ ischem
 vascular
 diseas
 see
-'dihydroergotamin
-'
 migrainosu
 for
 patient
@@ -5531,9 +5417,7 @@ persist
 disabl
 symptom
 see
-'statu
 migrainosu
-'
 treatment
 prophylact
 headach
@@ -5595,7 +5479,6 @@ one
 side
 head
 it
-'s
 often
 accompani
 nausea
@@ -5732,7 +5615,6 @@ symptom
 nervou
 system
 they
-'re
 usual
 visual
 also
@@ -5937,7 +5819,6 @@ clinic
 causesthough
 migrain
 caus
-n't
 fulli
 understood
 genet
@@ -6369,7 +6250,6 @@ access
 taylor
 fr
 abc
-'s
 headach
 trigger
 manag
@@ -6496,8 +6376,6 @@ procedur
 new
 mayo
 clinic
-'seed
-'
 success
 migrain
 manag
@@ -6911,14 +6789,8 @@ the
 word
 migrain
 greek
-'pain
 half
 head
-'
-'half
-'
-'skull
-'
 ul
 ul
 ul
@@ -7213,7 +7085,6 @@ flicker
 may
 interfer
 person
-'s
 abil
 read
 drive
@@ -8127,7 +7998,6 @@ high
 migrain
 attack
 caffein
-'s
 role
 inhibitor
 adenosin
@@ -8275,7 +8145,6 @@ nausea
 symptom
 interfer
 person
-'s
 life
 probabl
 migrain
@@ -9152,7 +9021,6 @@ studi
 design
 dosag
 melatonin
-'s
 possibl
 mechan
 action
@@ -9595,7 +9463,6 @@ monoclon
 antibodi
 target
 cgrp
-'s
 receptor
 eptinezumab
 erenumab
@@ -9936,10 +9803,8 @@ migrain
 attack
 limit
 diseas
-'s
 impact
 patient
-'
 person
 profession
 live
@@ -10545,7 +10410,6 @@ also
 frequent
 occur
 person
-'s
 famili
 research
 edit
@@ -10640,6 +10504,7 @@ inherit
 ol
 li
 avoid
+jump
 b
 c
 e
@@ -10647,8 +10512,6 @@ f
 inherit
 q
 quot
-'
-'
 background
 transpar
 transpar
@@ -10699,6 +10562,7 @@ origin
 februari
 retriev
 februari
+jump
 b
 c
 e
@@ -10721,6 +10585,7 @@ lang
 medic
 pp
 isbn
+jump
 b
 c
 pian
@@ -10749,6 +10614,7 @@ headach
 pain
 pmc
 pmid
+jump
 b
 c
 lay
@@ -10761,6 +10627,7 @@ women
 neurolog
 clinic
 pmid
+jump
 b
 c
 e
@@ -10808,6 +10675,7 @@ origin
 may
 retriev
 octob
+jump
 b
 armstrong
 c
@@ -10821,6 +10689,7 @@ american
 famili
 physician
 pmid
+jump
 b
 lind
 m
@@ -10848,6 +10717,7 @@ databas
 systemat
 review
 pmid
+jump
 b
 c
 e
@@ -10874,6 +10744,7 @@ american
 famili
 physician
 pmid
+jump
 b
 c
 vo
@@ -10930,6 +10801,7 @@ cambridg
 univers
 press
 isbn
+jump
 b
 c
 e
@@ -10957,6 +10829,7 @@ archiv
 march
 wayback
 machin
+jump
 b
 c
 amin
@@ -10997,6 +10870,7 @@ isbn
 archiv
 origin
 march
+jump
 b
 stovner
 lj
@@ -11016,6 +10890,7 @@ european
 journal
 neurolog
 pmid
+jump
 b
 nind
 migrain
@@ -11119,13 +10994,13 @@ studi
 lancet
 pmc
 pmid
+jump
 b
 c
 miller
 n
 walsh
 hoyt
-'s
 clinic
 philadelphia
 lippincott
@@ -11151,7 +11026,6 @@ le
 glanz
 wd
 mosbi
-'s
 medic
 nurs
 alli
@@ -11191,6 +11065,7 @@ isbn
 archiv
 origin
 march
+jump
 b
 c
 e
@@ -11224,6 +11099,7 @@ headach
 headach
 suppl
 pmid
+jump
 b
 lynn
 dj
@@ -11282,7 +11158,6 @@ samuel
 ma
 adam
 victor
-'s
 principl
 neurolog
 new
@@ -11303,6 +11178,7 @@ migrain
 cephalalgia
 pmc
 pmid
+jump
 b
 c
 tintin
@@ -11321,6 +11197,7 @@ york
 compani
 pp
 isbn
+jump
 b
 c
 e
@@ -11337,6 +11214,7 @@ england
 journal
 medicin
 pmid
+jump
 b
 c
 e
@@ -11358,6 +11236,7 @@ isbn
 archiv
 origin
 march
+jump
 b
 qubti
 w
@@ -11419,7 +11298,6 @@ rb
 dalessio
 dj
 wolff
-'s
 headach
 head
 pain
@@ -11428,6 +11306,7 @@ oxford
 univers
 press
 isbn
+jump
 b
 lisak
 rp
@@ -11444,6 +11323,7 @@ approach
 chichest
 uk
 isbn
+jump
 b
 c
 kaniecki
@@ -11455,6 +11335,7 @@ pain
 headach
 report
 pmid
+jump
 b
 joel
 glaser
@@ -11466,6 +11347,7 @@ isbn
 archiv
 origin
 march
+jump
 b
 sirven
 ji
@@ -11496,6 +11378,7 @@ migrain
 foundat
 retriev
 januari
+jump
 b
 he
 y
@@ -11592,6 +11475,7 @@ disord
 seminar
 neurolog
 pmid
+jump
 b
 c
 m
@@ -11607,6 +11491,7 @@ headach
 pain
 pmc
 pmid
+jump
 b
 c
 the
@@ -11642,6 +11527,7 @@ expert
 review
 neurotherapeut
 pmid
+jump
 b
 c
 ducro
@@ -11685,6 +11571,7 @@ migrain
 headach
 pmc
 pmid
+jump
 b
 c
 levi
@@ -11741,6 +11628,7 @@ summari
 studi
 headach
 pmid
+jump
 b
 c
 radat
@@ -11787,6 +11675,7 @@ opinion
 neurolog
 pmc
 pmid
+jump
 b
 finocchi
 c
@@ -12085,12 +11974,14 @@ strike
 scientif
 american
 pmid
+jump
 b
 c
 the
 headach
 chp
 pp
+jump
 b
 c
 olesen
@@ -12140,6 +12031,7 @@ confirm
 fact
 headach
 pmid
+jump
 b
 burnstock
 g
@@ -12349,6 +12241,7 @@ medic
 pharmacolog
 scienc
 pmid
+jump
 b
 c
 davidoff
@@ -12431,6 +12324,7 @@ assess
 seri
 pmc
 pmid
+jump
 b
 oskoui
 m
@@ -12529,6 +12423,7 @@ nation
 headach
 foundat
 pp
+jump
 b
 c
 loder
@@ -12695,6 +12590,7 @@ treatment
 migrain
 cephalalgia
 pmid
+jump
 b
 silberstein
 sd
@@ -12842,6 +12738,7 @@ manag
 headach
 bmj
 pmid
+jump
 b
 posadzki
 p
@@ -12859,6 +12756,7 @@ clinic
 trial
 cephalalgia
 pmid
+jump
 b
 sharp
 l
@@ -13007,6 +12905,7 @@ ed
 london
 pharmaceut
 press
+jump
 b
 ema
 assess
@@ -13018,6 +12917,7 @@ herba
 pdf
 retriev
 juli
+jump
 b
 c
 gelfand
@@ -13339,6 +13239,7 @@ journal
 emerg
 medicin
 pmid
+jump
 b
 c
 orr
@@ -13440,6 +13341,7 @@ manag
 migrain
 drug
 pmid
+jump
 b
 derri
 christoph
@@ -13463,6 +13365,7 @@ review
 issn
 pmc
 pmid
+jump
 b
 c
 derri
@@ -13487,6 +13390,7 @@ review
 issn
 pmc
 pmid
+jump
 b
 derri
 christoph
@@ -13510,6 +13414,7 @@ review
 issn
 pmc
 pmid
+jump
 b
 gener
 migrain
@@ -13564,6 +13469,7 @@ systemat
 review
 pmc
 pmid
+jump
 b
 sumamo
 schellenberg
@@ -13599,6 +13505,7 @@ dihydroergotamin
 magnesium
 headach
 pmid
+jump
 b
 morren
 ja
@@ -13737,6 +13644,7 @@ thiem
 verlag
 kg
 issn
+jump
 b
 c
 richer
@@ -13767,6 +13675,7 @@ systemat
 review
 pmc
 pmid
+jump
 b
 oskoui
 m
@@ -13952,6 +13861,7 @@ head
 face
 pain
 pmid
+jump
 b
 migrain
 inform
@@ -13975,6 +13885,7 @@ figur
 the
 migrain
 trust
+jump
 b
 brennan
 kc
@@ -14005,6 +13916,7 @@ burden
 diseas
 updat
 p
+jump
 b
 c
 m
@@ -14151,6 +14063,7 @@ systemat
 review
 cephalalgia
 pmid
+jump
 b
 hershey
 ad
@@ -14165,6 +14078,7 @@ the
 lancet
 neurolog
 pmid
+jump
 b
 nappi
 re
@@ -14186,6 +14100,7 @@ menopaus
 menopaus
 intern
 pmid
+jump
 b
 c
 e
@@ -14207,6 +14122,7 @@ isbn
 archiv
 origin
 march
+jump
 b
 steven
 waldman
@@ -14262,6 +14178,7 @@ isbn
 archiv
 origin
 march
+jump
 b
 pc
 koehler
@@ -14278,6 +14195,7 @@ scientif
 observ
 headach
 pmid
+jump
 b
 c
 stovner
@@ -14296,6 +14214,7 @@ headach
 pain
 pmc
 pmid
+jump
 b
 mennini
 fs
@@ -14374,7 +14293,6 @@ klement
 rj
 schoenen
 j
-d'agostino
 dp
 fischer
 d
@@ -14465,7 +14383,6 @@ knowledg
 gap
 journal
 women
-'s
 health
 pmid
 note
@@ -14498,7 +14415,6 @@ extern
 link
 edit
 wikipedia
-'s
 health
 care
 articl
@@ -14640,7 +14556,6 @@ statu
 dystonicu
 spasmod
 torticolli
-meige'
 blepharospasm
 athetosi
 chorea
@@ -14658,14 +14573,12 @@ restless
 leg
 dementia
 tauopathi
-alzheimer'
 primari
 progress
 aphasia
 frontotempor
 lobar
 degener
-pick'
 dementia
 lewi
 bodi
@@ -14758,10 +14671,8 @@ encephalopathi
 toxic
 encephalopathi
 hashimoto
-'s
 encephalopathi
 friedreich
-'s
 ataxia
 mnd
 umn
@@ -15170,7 +15081,6 @@ call
 ambul
 immedi
 someon
-'re
 experi
 paralysi
 weak
@@ -15420,7 +15330,33 @@ sugari
 foodstight
 sore
 neckconstipationirritabilityfrequ
-yawn
+yawninghealthlin
+newsletterget
+weekli
+migrain
+emailto
+help
+treat
+manag
+challeng
+condit
+send
+trust
+remedi
+cope
+techniqu
+expert
+emailsign
+up
+nowalso
+sign
+popular
+heart
+health
+newsletteryour
+privaci
+import
+us
 aura
 stageth
 aura
@@ -15740,33 +15676,7 @@ get
 check
 cluster
 headach
-newsletterget
-weekli
-migrain
-emailto
-help
-treat
-manag
-challeng
-condit
-'ll
-send
-trust
-remedi
-cope
-techniqu
-expert
-emailsign
-up
-nowalso
-sign
-popular
-heart
-health
-newsletteryour
-privaci
-import
-us
+symptom
 relief
 treatmentmed
 pain
@@ -16824,7 +16734,6 @@ remedi
 headach
 healthlin
 newsletterhealthlin
-'s
 migrain
 newslett
 helpwhen
@@ -16841,7 +16750,6 @@ give
 action
 advic
 doctor
-'s
 inclus
 root
 medic
@@ -17570,7 +17478,6 @@ sever
 case
 long
 patient
-'s
 symptom
 typic
 migrain
@@ -17861,17 +17768,14 @@ linkedin
 nichola
 metru
 md
-neurolog
+neurologist
 he
 current
-work
+serv
 glasser
 brain
 tumor
 center
-atlant
-health
-system
 summit
 new
 jersey
@@ -17930,12 +17834,10 @@ symptom
 occur
 help
 tip
-'re
 experienc
 could
 migrain
 if
-'re
 alreadi
 diagnos
 know
@@ -18156,7 +18058,6 @@ olfactori
 hallucin
 smell
 odor
-n't
 auditori
 hallucin
 hear
@@ -18483,7 +18384,6 @@ migrain
 equival
 when
 there
-'s
 no
 headach
 is
@@ -18565,7 +18465,6 @@ discuss
 medic
 plan
 healthcar
-n't
 work
 discuss
 anoth
@@ -18600,7 +18499,6 @@ longer
 hour
 despit
 treatment
-'s
 term
 statu
 migrainosu
@@ -18721,7 +18619,6 @@ rare
 symptom
 attribut
 migrain
-'re
 unsur
 connect
 get
@@ -18742,7 +18639,6 @@ the
 worst
 headach
 lifefeversrecurr
-n't
 keep
 anyth
 downhead
@@ -18850,7 +18746,6 @@ life
 sign
 up
 you
-'re
 thank
 sign
 there

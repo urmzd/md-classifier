@@ -182,7 +182,6 @@ pass
 electr
 current
 person
-'s
 brain
 safe
 i
@@ -345,7 +344,6 @@ first
 tri
 medicin
 that
-'s
 small
 chanc
 depress
@@ -404,7 +402,6 @@ two
 plan
 safest
 way
-'s
 also
 import
 talk
@@ -561,17 +558,14 @@ sometim
 may
 feel
 life
-n't
 worth
 live
 more
 bout
 blue
 depress
-n't
 weak
 ca
-n't
 simpli
 snap
 depress
@@ -579,7 +573,6 @@ may
 requir
 treatment
 but
-n't
 get
 discourag
 most
@@ -879,7 +872,6 @@ health
 profession
 soon
 if
-'re
 reluct
 seek
 treatment
@@ -912,7 +904,6 @@ immedi
 also
 consid
 option
-'re
 suicid
 thought
 call
@@ -1000,7 +991,6 @@ appoint
 mayo
 clinic
 causesit
-'s
 known
 exactli
 caus
@@ -1064,7 +1054,6 @@ treatment
 hormon
 chang
 bodi
-'s
 balanc
 hormon
 may
@@ -1183,7 +1172,6 @@ variat
 develop
 genit
 organ
-n't
 clearli
 male
 femal
@@ -1237,7 +1225,6 @@ depress
 often
 get
 wors
-n't
 treat
 result
 emot
@@ -1302,7 +1289,6 @@ anxieti
 can
 i
 preventionther
-'s
 sure
 way
 prevent
@@ -1570,7 +1556,6 @@ thing
 antidepress
 alcohol
 what
-'s
 concern
 antidepress
 weight
@@ -1584,7 +1569,6 @@ work
 antidepress
 select
 one
-'s
 right
 antidepress
 side
@@ -1941,7 +1925,6 @@ also
 caus
 problem
 person
-'s
 life
 like
 work
@@ -2533,7 +2516,6 @@ includ
 sourc
 hered
 someon
-'s
 gene
 depress
 often
@@ -2984,7 +2966,6 @@ doctor
 would
 lower
 patient
-'s
 blood
 sugar
 much
@@ -3096,8 +3077,6 @@ avoid
 inherit
 q
 quot
-'
-'
 background
 transpar
 transpar
@@ -3360,7 +3339,6 @@ antidepress
 select
 one
 that
-'s
 right
 you
 mayo
@@ -3624,7 +3602,6 @@ famili
 mani
 symptom
 depress
-'re
 unlik
 list
 page
@@ -3734,7 +3711,6 @@ cope
 symptom
 without
 realis
-'re
 unwel
 it
 sometim
@@ -3794,7 +3770,6 @@ sad
 loss
 come
 go
-'re
 still
 abl
 enjoy
@@ -3842,7 +3817,6 @@ babi
 known
 postnat
 depress
-'s
 treat
 similar
 way
@@ -5071,7 +5045,6 @@ depress
 mood
 disord
 known
-'ve
 link
 genet
 environment
@@ -5321,12 +5294,10 @@ treatment
 plan
 for
 children
-'s
 need
 hospit
 boston
 children
-'s
 inpati
 psychiatri
 servic
@@ -6400,7 +6371,6 @@ mild
 moder
 depress
 john
-'s
 wort
 exampl
 one
@@ -6425,7 +6395,6 @@ help
 reduc
 becaus
 john
-'s
 wort
 affect
 serotonin
@@ -6451,11 +6420,9 @@ tri
 complementari
 treatment
 john
-'s
 wort
 doe
 john
-'s
 wort
 have
 ani
@@ -6503,7 +6470,6 @@ moder
 the
 good
 news
-n't
 becom
 gym
 devote
