@@ -13,6 +13,9 @@ src/collector/**/*
 # Ignore swap files.
 **/*.swp
 
+# Ignore generated files at root
+.DS_Store
+
 # Ignore LaTex build files
 docs/*
 !*.pdf
