@@ -22,3 +22,6 @@ docs/*
 !*.tex
 !*.bib
 
+# Ignore saved model
+resources/**
+!resources/data/**/*
