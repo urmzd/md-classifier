@@ -18,6 +18,8 @@ src/collector/**/*
 
 # Ignore LaTex build files
 docs/**/*
+!docs/p1
+!docs/report
 !docs/**/*.pdf
 !docs/**/*.tex
 !docs/**/*.bib

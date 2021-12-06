@@ -1,0 +1,30 @@
+\documentclass[12pt]{report}
+\title{CNN}
+\author{Urmzd Mukhammadnaim}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{Methodology}
+\section{Data Processing}
+
+After the extraction of the documents for each classification, we explored two preprocessor implementations. 
+We first describe the use of One Hot Encoder and Witten-Bell Probability Distribution to retain morphological-level information,
+and generate unique sets of words that can later be fed into the CNN.
+Subsequently, we analyze the use of the FastText model as a means of retaining semantic-level information,
+and ensuring words with similar words appear closer together in the subspace.
+
+\subsection{One Hot Encoding and Witten Bell Generation}
+After the documents were tokenized, the text was piped into the transformer $T1$ which 
+applied a series of filters and maps to remove punctuation and ultimately break the words into their stems.
+The result of $T1$ would consist of a set of unique stems which could be fed into the encoder $D_n$ where 
+$n$ represents the order of which the the document was processed in.
+After $T1$ was applied to all documents, the sets were unioned to generate the vocabulary $V$.
+$V$ was then fed into a \emph{FreqDist} class from the \emph{nltk.probability} package to allow the subsequent
+usage of the \emph{WittenBellProbDist} class. By allocating $|V| + 1$ bins, 
+
+
+%Using the OneHotEncoder module from sklearn's preprocessor package,  
+
+
+\end{document}
