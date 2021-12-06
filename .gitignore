@@ -20,7 +20,6 @@ src/collector/**/*
 docs/**/*
 !docs/p1
 !docs/report
-!docs/**/*.pdf
 !docs/**/*.tex
 !docs/**/*.bib
 
