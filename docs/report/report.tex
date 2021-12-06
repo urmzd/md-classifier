@@ -1,30 +1,59 @@
 \documentclass[12pt]{report}
-\title{CNN}
-\author{Urmzd Mukhammadnaim}
+\title{Classification of Ailments Given Description of Symptoms}
+\author{Urmzd Mukhammadnaim \\ Ben MacDonald}
 
 \begin{document}
 \maketitle
 \tableofcontents
-\chapter{Methodology}
+\begin{abstract}[s] 
+In this paper, we address the challenges experienced in the preliminary research phase
+of ailment diagnosis performed by many individuals prior to visiting a
+healthcare professional. Due to the large quantity of varying results appearing
+once someone searches their current symptoms, we developed a Convolutional
+Neural Network (CNN) that reduces this clutter by returning only the most
+probable medical condition given the user’s description. Forthcoming, we
+decided to limit the possible classifications to the medical conditions,
+migraine, tetanus and depression. To train the model, data is obtained by
+scraping text data from various medical websites which were written using
+casual terminology to form a corpus. The corpus was then vectorized using
+one-hot encoding in one implementation and the FastText model in another. Once
+the model is trained, we then analyzed its ability to classify our own
+descriptions of migraines, depression and tetanus. \end{abstract}
+
+\chapter{Methodology} 
 \section{Data Processing}
 
-After the extraction of the documents for each classification, we explored two preprocessor implementations. 
-We first describe the use of One Hot Encoder and Witten-Bell Probability Distribution to retain morphological-level information,
-and generate unique sets of words that can later be fed into the CNN.
-Subsequently, we analyze the use of the FastText model as a means of retaining semantic-level information,
-and ensuring words with similar words appear closer together in the subspace.
+After the extraction and consequent concatenation of the documents for each
+classification, we explored two preprocessor implementations. We first describe
+the use of One Hot Encoder and Witten-Bell Probability Distribution to retain
+morphological-level information, and generate unique sets of words that can
+later be fed into the CNN. Subsequently, we analyze the use of the FastText
+model as a means of retaining semantic-level information, and ensuring words
+with similar words appear closer together in the subspace.
 
-\subsection{One Hot Encoding and Witten Bell Generation}
-After the documents were tokenized, the text was piped into the transformer $T1$ which 
-applied a series of filters and maps to remove punctuation and ultimately break the words into their stems.
-The result of $T1$ would consist of a set of unique stems which could be fed into the encoder $D_n$ where 
-$n$ represents the order of which the the document was processed in.
-After $T1$ was applied to all documents, the sets were unioned to generate the vocabulary $V$.
-$V$ was then fed into a \emph{FreqDist} class from the \emph{nltk.probability} package to allow the subsequent
-usage of the \emph{WittenBellProbDist} class. By allocating $|V| + 1$ bins, 
+\subsection{One Hot Encoding and Witten Bell Generation} 
+After the documents were tokenized, the text was piped into the transformer $T1$ which applied a
+series of filters and maps to remove punctuation and ultimately break the words
+into their stems. The result of $T1$ consisted of a set of unique stems $D_n$
+where $n$ represents the order of which the the document was processed in.
+After $T1$ was applied to all documents, the union of all the sets was taken to
+form the vocabulary $V$. $V$ was then fed into the \emph{FreqDist} class from
+the \emph{nltk.probability} package to allow the subsequent usage of the
+\emph{WittenBellProbDist} class. By allocating $|V|$ bins, and using the
+\emph{FreqDist} of $D_n$, we ended up with an instance of the
+\emph{WittenBellProbDist} capable of generating ${}_{V}C_{S}$ unique sets,
+where $S$ represents the cardinality of the generated set. The described method
+was used to prevent clustering of the same words, and ultimately prevent the
+model from developing an aptitude for classifing an input based on the
+frequency of its instances instead of the existence of an instance.\\
 
+After $N$ samples were generated via the \emph{WittenBellProbDist} method
+described above, we transformed the data using the
+\emph{sklearn.preprocessor.OneHotencoder} class fit on the the vocabulary $V$.
 
-%Using the OneHotEncoder module from sklearn's preprocessor package,  
+\subsection{FastText Model}
+Yuh matie
+
 
 
 \end{document}
