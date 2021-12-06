@@ -1,6 +1,6 @@
 selector,link
 #topicText,https://www.uptodate.com/contents/tetanus-the-basics?search=Patient%20education&source=search_result&selectedTitle=110~150&usage_type=default&display_rank=110
-#main-content, https://www.mayoclinic.org/diseases-conditions/tetanus/symptoms-causes/syc-20351625
+#main-content,https://www.mayoclinic.org/diseases-conditions/tetanus/symptoms-causes/syc-20351625
 #mw-content-text,https://en.wikipedia.org/wiki/Tetanus
 #maincontent > article > div > div,https://www.nhs.uk/conditions/tetanus/
 body > div.container.d-flex.flex-wrap.body-wrapper.bg-white > main > div:nth-child(3) > div > div:nth-child(3) > div:nth-child(1) > div,https://www.cdc.gov/tetanus/about/symptoms-complications.html
