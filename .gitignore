@@ -17,7 +17,7 @@ src/collector/**/*
 .DS_Store
 
 # Ignore LaTex build files
-docs/*
+docs/**/*
 !*.pdf
 !*.tex
 !*.bib
