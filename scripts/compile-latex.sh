@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 # Install dependencies.
+sudo apt-get update -y
 sudo apt-get install -y texlive-full
 
 # Save directory where bash is ran
