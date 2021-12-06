@@ -21,6 +21,105 @@ one-hot encoding in one implementation and the FastText model in another. Once
 the model is trained, we then analyzed its ability to classify our own
 descriptions of migraines, depression and tetanus. 
 \end{abstract}
+\chapter{Introduction}
+  Through the ease of access to information provided by the internet for 3.2
+  billion people, individuals are able to obtain data in a wide array of topics
+  nearly instantaneously. Among these searches are descriptions of symptoms the
+  user is experiencing and attempting to find a root cause for. According to a
+  study conducted by Eligibility, approximately 89\% of American patients search
+  what they are experiencing on a search engine prior to visiting their doctor.
+
+Upon entering their symptoms, however, they will find a wide array of links to
+sources such as WebMD and Mayoclinic. These pages will typically contain a
+topic ailment, a description of it, a list of potential symptoms and a series
+of treatments. In this current series of interactions, the user experience may
+be negatively impacted by an overwhelming quantity of information. Depending on
+the description, the user may observe contradicting as well as rarer and more
+unlikely diagnoses. This is further exaggerated when the user enters a more
+general description such as “pounding headache”, which can be attributed to a
+large number of illnesses. 
+
+This problem led us to consider how to structure a process that streamlines
+this preliminary research of possible diagnoses prior to visiting a medical
+doctor. As opposed to using a search engine which would produce a wide range of
+articles, we viewed the ideal scenario as condensing the actions to entering
+the text into a model that would provide the singular most probable diagnosis.
+To implement this functionality, we determined three necessary objectives:
+\begin{enumerate}
+  \item Acquire training and testing data that includes the description of an ailment
+  \item Develop a model that produces a series of probabilities for each available ailments given data
+  \item Implement this model in classifying text descriptions of a series of symptoms provided by the user
+\end{enumerate}
+
+In order to gather classified training and testing data, we scraped text from
+websites which included descriptions of the ailments and its symptoms with
+casual language. This was done in order to improve the likeness between the
+training data and the user text the model would classify. There were several
+possible approaches we could have taken to develop a model for this
+multi-classification problem which we considered. Among these, we found that
+Convolutional Neural Networks (CNNs) provided a flexible model which performed
+well with classifying text, and has previously been used to classify symptoms
+at a sentence level to a great degree of success. We were then able to observe
+the network's capacity to classify training and testing data, and proceeded to
+test its ability to categorize our own descriptions of any of the three
+ailments.
+
+\chapter{Related Works}
+  There are various ways in which we could have the user interact with the
+  model. Kurup and Shetty document their creation of an conversational chatbot
+  that utilizes Neural Networks and Decision Tree Classifiers to classify the
+  ailment that a particular user is experiencing given their responses to
+  questions about their symptoms. Due to a sparsity of publicly available
+  datasets, they created a JSON file with custom patterns classified by their
+  expected responses, and used this to train a Neural Network composed of two
+  dense layers, as well as dropout layers to prevent overfitting. The Decision
+  Tree Classifier was then trained with a dataset of binary values marking
+  whether or not a symptom is associated with a particular ailment. When
+  interacting with the Neural Network via messaging, the user could indicate
+  that they wished to take a “prognosis quiz”, where they would answer yes or
+  no to experiencing a symptom. The maximum performance of the Neural Network
+  reached 95\% accuracy, and the Decision Tree Classifier functioned well. This
+  implementation, however, does not provide a seamless series of interactions
+  for the user as they converse with a chatbot and, in order to classify their
+  symptoms, switch to a yes or no questionnaire.
+
+Utilizing CNNs in Natural Language Processing (NLP) is growing in popularity,
+with several papers documenting their efficacy in text classification. Hughes
+et al describe their use of a Word2vec model and CNN to classify medical text
+at the sentence level, and compare their accuracy to other NLP techniques.
+Their vectorization model was trained through the use of a dataset containing
+15,000 clinical research. A series of clinical articles were then each
+pre-categorized as one of 26 medical categories with 4000 sentences being
+randomly selected for each classification. These sentences were then vectorized
+by the Word2vec model and used to train the CNN. This setup then went on to
+perform with 68\% accuracy, out performing other text classification techniques
+such as a bag-of-words and logistic regression model which possessed an
+accuracy of 51\%. This is an effective model that displays the success of CNNs
+in this context and on a larger scale with 26 individual ailments. The use of
+word embeddings provides the neural network greater possible depths of
+understanding for the relationships between separate words and their
+associations. These benefits, however, are dependent on the large quantity of
+available data to train the Word2vec model.
+
+There is an evident distinction between classifying professional medical text
+and casual descriptions with informal terminology. Gambhir et al studied the
+accuracy of a Convolutional Neural Network-Long Short Term Memory (CNN-LSTM)
+model in regards to monitoring social media for posts mentioning a drug name,
+and classifying them as presenting personal medication intake, possible
+medication intake and non-intake. In this setup, the CNN would take
+vectorized training data from Word2vec and apply a series of convolution
+layers and max pooling layers. The output being a series of feature maps,
+this would then be input into the LSTM model, which in turn feeds data to a
+series of fully connected layers and classifies the data as one of the three
+possible categories. The CNN-LSTM performed with the greatest precision in
+comparison to other tested models, but a lower recall than the LSTM model.
+The distinction between professional medical text and casual descriptions is
+an important one to make. There is a large difference between the two both in
+terms of sentence structure and diction. Professional text can contain a
+variety of rare terms for specific conditions which can impact a models
+capacity to properly classify a description should a large corpus be
+unavailable.
+
 
 \chapter{Methodology} 
 \section{Data Processing}
@@ -51,16 +150,94 @@ frequency of its instances instead of the existence of an instance.\\
 
 After $N$ samples were generated via the \emph{WittenBellProbDist} method
 described above, we transformed the data using an instance of the
-\emph{sklearn.preprocessor.OneHotencoder} class fit on the the vocabulary $V$.
+\emph{OneHotencoder} class fit on the the vocabulary $V$.
 With this each word in $D$ had its own unique binary vector and out-of-vocabulary (OOV)
 words were treated as the $0$ vector with size $|V|$.
 
 \subsection{FastText Model}
 In the alternative preprocessor, we used the FastText model. Unlike the former method,
 no data generation was done. Instead, all documents were first tokenized by sentence using
-an instance of the \emph{nltk.tokenizer.PunktSentenceTokenizer}. Afterwards, an implementation 
-of the FastText 
-into an implementation of the 
+an instance of the \emph{PunktSentenceTokenizer}. The sentences were then appended to
+a singular file, which served as the corpus for the FastText model. Using an implementation of
+the FastText model by \emph{gensim}, we trained an unsupervised word embeddings model 
+capable of translating words into a $R$ dimension vector.   
+
+
+\subsection{Clean Up}
+
+\chapter{Experimental Design}
+\section{First Implementation}
+\subsection{Discussion}
+Over the course of developing the model, there were multiple changes made to
+the structure and layout of the neural network and how we processed the data.
+In our initial implementation, the instances for the training and test data
+were created by randomly generating a series of 56 words from the scraped
+corpus with the use of witten bell smoothing to include unknown words. The
+quantity of words was selected based on the character length of a tweet (280)
+and the average character length of English words (5). This was done due to a
+lack of adequate datasets which included categorized descriptions of symptoms
+and their associated ailment. There are several inherent problems with this
+method, the most evident being the lack of contextual meaning behind the
+inserted word placement and unpredictable behaviour. For the CNN, the only
+pattern it would be able to recognize would be in the form of the terms fed to
+the model, and it would be unable to recognize any meaningful relationships
+with how the text is constructed.
+
+In order to convert the text into a matrix that the CNN would require, we first
+decided upon using One Hot Encoding. This was a simple process that would
+convert a series of 56 words into a sparse matrix filled with zeros apart from
+a 1 in the word’s associated column. Though this is an established method, it
+certainly impacted the performance of the model. Since every single column
+represented a unique word, the dimensions of the sentence matrix were 56x4461.
+This was a result of the 4461 unique stems of words in the corpus. This large
+number of features slowed the model dramatically, and led to the epoch training
+time to increase. We also didn’t believe this was an optimal representation of
+the words being used, as there was no semantic representation through this
+model which would be provided through the use of word embeddings. We would go
+on to use these in our second implementation of the model.
+\section{Results}
+When observing the accuracy over the number of epochs in the first
+implementation, we found that both training and validation peaked at 3
+epochs. After 3 epochs, the training accuracy began to plateau, whereas
+validation accuracy began to decline. We found this to also occur for recall
+over the epochs, where both training and validation peaked at 3 and
+validation began to reduce while training levelled. In Figure 1 and Figure 2,
+however, is a measurement of how well the model performed in regards to
+classifying the randomized training data. In Figure 3, we mapped the model’s
+capacity to classify our written descriptions as either depression, a
+migraine or tetanus.
+
+As observed in figure 3, the model was capable of classifying tetanus with a
+high recall of 1, however with a poor precision of 0.45 due to the 6 false
+positives labelled as tetanus. On the other hand, depression had a higher
+precision than tetanus with 1, but lower recall at 0.6. The model was incapable
+at correctly classifying any descriptions of migraines, with both recall and
+precision being zero.
+
+We believe the poor differentiation between migraines and tetanus can be
+attributed to several factors. Tetanus comes with several symptoms, including
+muscle stiffness, jaw aches and also possible headaches. Due to the fact that
+a large number of the web articles scraped include descriptions of headaches
+for tetanus, and migraines often being described as severe head pains, the
+similar language could have made it difficult for the model to adequately
+differentiate between the two of them. This is further supported by the
+predicted probabilities of each class. For several of the descriptions of
+headaches, the probability of the text being tetanus was ~0.49, while it was
+~0.47 for being a migraine. In these cases, the probability of it being
+depression was ~0.03, which may be due to the difference in language used to
+describe symptoms of depression. Another possible explanation may be the
+variability in the form of the generated sentence instances for migraines. It
+could be that the generated sentences for migraines did not adequately
+represent any useful relationships in terms of the text used and its
+structure that the neural network could learn to correctly classify
+descriptions of migraine symptoms. Both of these factors in tandem would
+decrease the model’s accuracy for classifying migraines.
+
+Filter Size Smaller now
+
+
+\section{Second Implementation}
+
 
 %\bibliography{report}
 
