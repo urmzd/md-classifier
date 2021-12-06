@@ -18,9 +18,9 @@ src/collector/**/*
 
 # Ignore LaTex build files
 docs/**/*
-!*.pdf
-!*.tex
-!*.bib
+!docs/**/*.pdf
+!docs/**/*.tex
+!docs/**/*.bib
 
 # Ignore saved model
 resources/**
