@@ -1,11 +1,12 @@
 \documentclass[12pt]{report}
 \title{Classification of Ailments Given Description of Symptoms}
 \author{Urmzd Mukhammadnaim \\ Ben MacDonald}
+%\bibliographystyle{apacite}
 
 \begin{document}
 \maketitle
 \tableofcontents
-\begin{abstract}[s] 
+\begin{abstract}
 In this paper, we address the challenges experienced in the preliminary research phase
 of ailment diagnosis performed by many individuals prior to visiting a
 healthcare professional. Due to the large quantity of varying results appearing
@@ -18,7 +19,8 @@ scraping text data from various medical websites which were written using
 casual terminology to form a corpus. The corpus was then vectorized using
 one-hot encoding in one implementation and the FastText model in another. Once
 the model is trained, we then analyzed its ability to classify our own
-descriptions of migraines, depression and tetanus. \end{abstract}
+descriptions of migraines, depression and tetanus. 
+\end{abstract}
 
 \chapter{Methodology} 
 \section{Data Processing}
@@ -48,12 +50,18 @@ model from developing an aptitude for classifing an input based on the
 frequency of its instances instead of the existence of an instance.\\
 
 After $N$ samples were generated via the \emph{WittenBellProbDist} method
-described above, we transformed the data using the
+described above, we transformed the data using an instance of the
 \emph{sklearn.preprocessor.OneHotencoder} class fit on the the vocabulary $V$.
+With this each word in $D$ had its own unique binary vector and out-of-vocabulary (OOV)
+words were treated as the $0$ vector with size $|V|$.
 
 \subsection{FastText Model}
-The FastText
+In the alternative preprocessor, we used the FastText model. Unlike the former method,
+no data generation was done. Instead, all documents were first tokenized by sentence using
+an instance of the \emph{nltk.tokenizer.PunktSentenceTokenizer}. Afterwards, an implementation 
+of the FastText 
+into an implementation of the 
 
-
+%\bibliography{report}
 
 \end{document}
