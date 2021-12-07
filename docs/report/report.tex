@@ -168,72 +168,55 @@ capable of translating words into a $R$ dimension vector.
 \chapter{Experimental Design}
 \section{First Implementation}
 \subsection{Discussion}
-Over the course of developing the model, there were multiple changes made to
-the structure and layout of the neural network and how we processed the data.
-In our initial implementation, the instances for the training and test data
-were created by randomly generating a series of 56 words from the scraped
-corpus with the use of witten bell smoothing to include unknown words. The
-quantity of words was selected based on the character length of a tweet (280)
-and the average character length of English words (5). This was done due to a
-lack of adequate datasets which included categorized descriptions of symptoms
-and their associated ailment. There are several inherent problems with this
-method, the most evident being the lack of contextual meaning behind the
-inserted word placement and unpredictable behaviour. For the CNN, the only
-pattern it would be able to recognize would be in the form of the terms fed to
-the model, and it would be unable to recognize any meaningful relationships
-with how the text is constructed.
+Over the course of developing the model, there were multiple changes made to the 
+structure and layout of the neural network and how we processed the data. In our 
+initial implementation, the instances for the training and test data were created 
+by randomly generating a series of 56 words from the scraped corpus with the use 
+of witten bell smoothing to include unknown words. The quantity of words was selected 
+based on the character length of a tweet (280) and the average character length of 
+English words (5). This was done due to a lack of adequate datasets which included 
+categorized descriptions of symptoms and their associated ailment. There are several 
+inherent concerns we had with this method, the most evident being the lack of contextual 
+meaning behind the inserted word placement and unpredictable behaviour. For the CNN, the 
+only pattern it would be able to recognize would be in the form of the terms fed to the 
+model, and it would be unable to discern semantic relationships between the words.
 
-In order to convert the text into a matrix that the CNN would require, we first
-decided upon using One Hot Encoding. This was a simple process that would
-convert a series of 56 words into a sparse matrix filled with zeros apart from
-a 1 in the word’s associated column. Though this is an established method, it
-certainly impacted the performance of the model. Since every single column
-represented a unique word, the dimensions of the sentence matrix were 56x4461.
-This was a result of the 4461 unique stems of words in the corpus. This large
-number of features slowed the model dramatically, and led to the epoch training
-time to increase. We also didn’t believe this was an optimal representation of
-the words being used, as there was no semantic representation through this
-model which would be provided through the use of word embeddings. We would go
-on to use these in our second implementation of the model.
+In order to convert the text into a matrix that the CNN would require, we first decided 
+upon using One Hot Encoding. This was a simple process that would convert a series of 56 
+words into a sparse matrix filled with zeros apart from a 1 in the word’s associated column. 
+Though this is an established method, it certainly impacted the performance of the model. 
+Since every single column represented a unique word, the dimensions of the sentence matrix 
+were 56x4210. This was a result of the 4210 unique stems of words in the corpus. This large 
+number of features slowed the model dramatically, and led to the epoch training time to increase. 
+We also didn’t believe this was an optimal representation of the words being used, as there was 
+no semantic representation through this model which would be provided through the use of word 
+embeddings. We would go on to use these in our second implementation of the model.
+
 \section{Results}
-When observing the accuracy over the number of epochs in the first
-implementation, we found that both training and validation peaked at 3
-epochs. After 3 epochs, the training accuracy began to plateau, whereas
-validation accuracy began to decline. We found this to also occur for recall
-over the epochs, where both training and validation peaked at 3 and
-validation began to reduce while training levelled. In Figure 1 and Figure 2,
-however, is a measurement of how well the model performed in regards to
-classifying the randomized training data. In Figure 3, we mapped the model’s
-capacity to classify our written descriptions as either depression, a
+When observing the accuracy over the number of epochs in the first implementation, 
+we found that at the first epoch, validation accuracy was higher than training 
+accuracy with values of 0.925 and 0.74 respectively. For the second epoch and onwards, 
+however, training accuracy varied around 0.99 and validation accuracy hovered around 
+0.9. Figure 1 and Figure 2, however, are measures of how well the model performed 
+in regards to classifying the randomized training data. In Figure 3, we mapped the 
+model’s capacity to classify our written descriptions as either depression, a 
 migraine or tetanus.
 
-As observed in figure 3, the model was capable of classifying tetanus with a
-high recall of 1, however with a poor precision of 0.45 due to the 6 false
-positives labelled as tetanus. On the other hand, depression had a higher
-precision than tetanus with 1, but lower recall at 0.6. The model was incapable
-at correctly classifying any descriptions of migraines, with both recall and
-precision being zero.
+As observed in Figure 3, the model was highly effective at classing descriptions of 
+depression, migraines and tetanus. Depression possessed a precision of 0.83 and a 
+recall of 1.0 while tetanus had a precision and recall of 1 and 0.8 respectively. 
+For migraines, however, the model returned a precision and recall both of 1. 
 
-We believe the poor differentiation between migraines and tetanus can be
-attributed to several factors. Tetanus comes with several symptoms, including
-muscle stiffness, jaw aches and also possible headaches. Due to the fact that
-a large number of the web articles scraped include descriptions of headaches
-for tetanus, and migraines often being described as severe head pains, the
-similar language could have made it difficult for the model to adequately
-differentiate between the two of them. This is further supported by the
-predicted probabilities of each class. For several of the descriptions of
-headaches, the probability of the text being tetanus was ~0.49, while it was
-~0.47 for being a migraine. In these cases, the probability of it being
-depression was ~0.03, which may be due to the difference in language used to
-describe symptoms of depression. Another possible explanation may be the
-variability in the form of the generated sentence instances for migraines. It
-could be that the generated sentences for migraines did not adequately
-represent any useful relationships in terms of the text used and its
-structure that the neural network could learn to correctly classify
-descriptions of migraine symptoms. Both of these factors in tandem would
-decrease the model’s accuracy for classifying migraines.
+There are several factors that play into the model’s ability to label these descriptions 
+accurately. It is evident that the neural network was capable of recognizing the particular 
+types of words commonly used when describing the three illnesses as scraped from medical 
+websites. An example of an accurately labelled symptom description tested was "my head 
+feels like it's spinning, pain in head, pounding throbbing". Keywords the model that 
+may have been recognized in this specific instance were “head”, “spinning”, “pounding” and 
+“throbbing”. The 750 generated instances for each label used to train the model appear to 
+have provided a generalized representation of the language used to describe symptoms to make 
+the model perform with a high level of precision and recall. 
 
-Filter Size Smaller now
 
 
 \section{Second Implementation}
