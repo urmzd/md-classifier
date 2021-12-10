@@ -17,13 +17,11 @@ src/collector/**/*
 .DS_Store
 
 # Ignore LaTex build files
-docs/**/*
-!docs/report
-!docs/report/*.tex
-!docs/report/*.bib
-!docs/p1
-!docs/p1/*.tex
-!docs/p1/*.bib
+docs/report/*
+docs/p1/*
+!*.bib
+!*.tex
+!*.png
 
 # Ignore saved model
 resources/**/*
