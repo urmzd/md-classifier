@@ -1,6 +1,7 @@
 # MD NLP
 
-An NLP model which predicts an ailment given a description of symptoms.
+A CNN with two preprocessors choices capable of predicting ailments given a description 
+of their symptoms.
 
 ## Table of Contents
 

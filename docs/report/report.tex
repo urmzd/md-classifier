@@ -7,27 +7,27 @@
 \maketitle
 \tableofcontents
 \begin{abstract}
-In this paper, we address the challenges experienced in the preliminary research phase
-of ailment diagnosis performed by many individuals prior to visiting a
-healthcare professional. Due to the large quantity of varying results appearing
-once someone searches their current symptoms, we developed a Convolutional
-Neural Network (CNN) that reduces this clutter by returning only the most
-probable medical condition given the user’s description. Forthcoming, we
-decided to limit the possible classifications to the medical conditions,
-migraine, tetanus and depression. To train the model, data is obtained by
-scraping text data from various medical websites which were written using
-casual terminology to form a corpus. The corpus was then vectorized using
-one-hot encoding in one implementation and the FastText model in another. Once
-the model is trained, we then analyzed its ability to classify our own
-descriptions of migraines, depression and tetanus. 
+	In this paper, we address the challenges experienced in the preliminary research phase
+	of ailment diagnosis performed by many individuals prior to visiting a
+	healthcare professional. Due to the large quantity of varying results appearing
+	once someone searches their current symptoms, we developed a Convolutional
+	Neural Network (CNN) that reduces this clutter by returning only the most
+	probable medical condition given the user’s description. Forthcoming, we
+	decided to limit the possible classifications to the medical conditions,
+	migraine, tetanus and depression. To train the model, data is obtained by
+	scraping text data from various medical websites which were written using
+	casual terminology to form a corpus. The corpus was then vectorized using
+	one-hot encoding in one implementation and the FastText model in another. Once
+	the model is trained, we then analyzed its ability to classify our own
+	descriptions of migraines, depression and tetanus.
 \end{abstract}
 \chapter{Introduction}
-  Through the ease of access to information provided by the internet for 3.2
-  billion people, individuals are able to obtain data in a wide array of topics
-  nearly instantaneously. Among these searches are descriptions of symptoms the
-  user is experiencing and attempting to find a root cause for. According to a
-  study conducted by Eligibility, approximately 89\% of American patients search
-  what they are experiencing on a search engine prior to visiting their doctor.
+Through the ease of access to information provided by the internet for 3.2
+billion people, individuals are able to obtain data in a wide array of topics
+nearly instantaneously. Among these searches are descriptions of symptoms the
+user is experiencing and attempting to find a root cause for. According to a
+study conducted by Eligibility, approximately 89\% of American patients search
+what they are experiencing on a search engine prior to visiting their doctor.
 
 Upon entering their symptoms, however, they will find a wide array of links to
 sources such as WebMD and Mayoclinic. These pages will typically contain a
@@ -37,7 +37,7 @@ be negatively impacted by an overwhelming quantity of information. Depending on
 the description, the user may observe contradicting as well as rarer and more
 unlikely diagnoses. This is further exaggerated when the user enters a more
 general description such as “pounding headache”, which can be attributed to a
-large number of illnesses. 
+large number of illnesses.
 
 This problem led us to consider how to structure a process that streamlines
 this preliminary research of possible diagnoses prior to visiting a medical
@@ -46,9 +46,9 @@ articles, we viewed the ideal scenario as condensing the actions to entering
 the text into a model that would provide the singular most probable diagnosis.
 To implement this functionality, we determined three necessary objectives:
 \begin{enumerate}
-  \item Acquire training and testing data that includes the description of an ailment
-  \item Develop a model that produces a series of probabilities for each available ailments given data
-  \item Implement this model in classifying text descriptions of a series of symptoms provided by the user
+	\item Acquire training and testing data that includes the description of an ailment
+	\item Develop a model that produces a series of probabilities for each available ailments given data
+	\item Implement this model in classifying text descriptions of a series of symptoms provided by the user
 \end{enumerate}
 
 In order to gather classified training and testing data, we scraped text from
@@ -65,23 +65,23 @@ test its ability to categorize our own descriptions of any of the three
 ailments.
 
 \chapter{Related Works}
-  There are various ways in which we could have the user interact with the
-  model. Kurup and Shetty document their creation of an conversational chatbot
-  that utilizes Neural Networks and Decision Tree Classifiers to classify the
-  ailment that a particular user is experiencing given their responses to
-  questions about their symptoms. Due to a sparsity of publicly available
-  datasets, they created a JSON file with custom patterns classified by their
-  expected responses, and used this to train a Neural Network composed of two
-  dense layers, as well as dropout layers to prevent overfitting. The Decision
-  Tree Classifier was then trained with a dataset of binary values marking
-  whether or not a symptom is associated with a particular ailment. When
-  interacting with the Neural Network via messaging, the user could indicate
-  that they wished to take a “prognosis quiz”, where they would answer yes or
-  no to experiencing a symptom. The maximum performance of the Neural Network
-  reached 95\% accuracy, and the Decision Tree Classifier functioned well. This
-  implementation, however, does not provide a seamless series of interactions
-  for the user as they converse with a chatbot and, in order to classify their
-  symptoms, switch to a yes or no questionnaire.
+There are various ways in which we could have the user interact with the
+model. Kurup and Shetty document their creation of an conversational chatbot
+that utilizes Neural Networks and Decision Tree Classifiers to classify the
+ailment that a particular user is experiencing given their responses to
+questions about their symptoms. Due to a sparsity of publicly available
+datasets, they created a JSON file with custom patterns classified by their
+expected responses, and used this to train a Neural Network composed of two
+dense layers, as well as dropout layers to prevent overfitting. The Decision
+Tree Classifier was then trained with a dataset of binary values marking
+whether or not a symptom is associated with a particular ailment. When
+interacting with the Neural Network via messaging, the user could indicate
+that they wished to take a “prognosis quiz”, where they would answer yes or
+no to experiencing a symptom. The maximum performance of the Neural Network
+reached 95\% accuracy, and the Decision Tree Classifier functioned well. This
+implementation, however, does not provide a seamless series of interactions
+for the user as they converse with a chatbot and, in order to classify their
+symptoms, switch to a yes or no questionnaire.
 
 Utilizing CNNs in Natural Language Processing (NLP) is growing in popularity,
 with several papers documenting their efficacy in text classification. Hughes
@@ -121,7 +121,29 @@ capacity to properly classify a description should a large corpus be
 unavailable.
 
 
-\chapter{Methodology} 
+\chapter{Methodology}
+\section{Data Collection}
+
+One of the challenges in the endeavour was finding accessible and well
+documented open-source records. As medical data is difficult to come across due
+to HIPAA, PIPEDA, and other laws that bar hospitals, and other medical
+organizations from distributing patient’s health documents, we had to settle
+for medical encyclopedias and clinics that published articles intended for
+educating individuals. To ensure baseline consistency in the data used across
+the desired classifications, the descriptions were pulled from the same sites.
+However, between articles on the same website, the detail in which the article
+was written varied greatly. Some articles had more advertisements, others had
+more miscellaneous content embedded, and most of them differed in document
+structure. In other words, the data could not be accessed directly via its url
+and DOM selector. The data was collected using the top-most DOM element
+encapsulating all the desired information, resulting in documents with
+irrelevant content within them.  As a result, a greater burden was moved onto
+the preprocessor to ensure clean and usable data was entering the CNN. It
+should also be noted that we used the automation library “pyppeteer” in lieu of
+a simple “GET” retrieval of the html document to prevent issues accessing the
+data due to Server Side Rendering (SSR). Consequently, this resulted in greater
+overhead during this phase.
+
 \section{Data Processing}
 
 After the extraction and consequent concatenation of the documents for each
@@ -132,9 +154,10 @@ later be fed into the CNN. Subsequently, we analyze the use of the FastText
 model as a means of retaining semantic-level information, and ensuring words
 with similar words appear closer together in the subspace.
 
-\subsection{One Hot Encoding and Witten Bell Generation} 
+\subsection{One Hot Encoding and Witten Bell Generation}
+
 After the documents were tokenized, the text was piped into the transformer $T1$ which applied a
-series of filters and maps to remove punctuation and ultimately break the words
+series of reduction operations to remove punctuation and ultimately break the words
 into their stems. The result of $T1$ consisted of a set of unique stems $D_n$
 where $n$ represents the order of which the the document was processed in.
 After $T1$ was applied to all documents, the union of all the sets was taken to
@@ -146,7 +169,8 @@ the \emph{nltk.probability} package to allow the subsequent usage of the
 where $S$ represents the cardinality of the generated set. The described method
 was used to prevent clustering of the same words, and ultimately prevent the
 model from developing an aptitude for classifing an input based on the
-frequency of its instances instead of the existence of an instance.\\
+frequency of its instances instead of the existence of an instance.
+
 
 After $N$ samples were generated via the \emph{WittenBellProbDist} method
 described above, we transformed the data using an instance of the
@@ -159,14 +183,23 @@ In the alternative preprocessor, we used the FastText model. Unlike the former m
 no data generation was done. Instead, all documents were first tokenized by sentence using
 an instance of the \emph{PunktSentenceTokenizer}. The sentences were then appended to
 a singular file, which served as the corpus for the FastText model. Using an implementation of
-the FastText model by \emph{gensim}, we trained an unsupervised word embeddings model 
-capable of translating words into a $R$ dimension vector.   
+the FastText model by \emph{gensim}, we trained an unsupervised word embeddings model
+capable of translating words into a $R$ dimension vector.
+After the FastText model was trained, each word in the vocublary was projected onto
+the embedding space, resulting in vectors of cardinality $R$.
 
+While each word had the same length, the sentence length varied. As a result,
+a transformer $T_2$ was created to pad the sequence given. The algorithm
+applied consisted of retrieving the vector that resulted of a coordinate-wise
+max or min. Alternating between max and min operations, we injected the sequence
+with the resulting vector from the operating described.
 
-\subsection{Clean Up}
+\section{Training \& Evaluation}
 
 \chapter{Experimental Design}
+
 \section{First Implementation}
+
 \subsection{Discussion}
 Over the course of developing the model, there were multiple changes made to
 the structure and layout of the neural network and how we processed the data.
