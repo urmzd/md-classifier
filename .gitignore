@@ -18,10 +18,11 @@ src/collector/**/*
 
 # Ignore LaTex build files
 docs/report/*
+!docs/report/images
+!docs/report/images/*
 docs/p1/*
 !*.bib
 !*.tex
-!*.png
 
 # Ignore saved model
 resources/**/*
