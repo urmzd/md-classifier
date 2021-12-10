@@ -7,7 +7,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          pull: 'NO-PULL'
+          pull: "NO-PULL"
 
       - name: Run script
         run: chmod u+x ./scripts/compile-latex.sh && ./scripts/compile-latex.sh
@@ -15,4 +15,5 @@ jobs:
 
       - uses: EndBug/add-and-commit@v7
         with:
-          message: Build latest pdf of proposal
+          message: build - the latest pdf's of all LaTex files
+          pull: 'NO-PULL'
