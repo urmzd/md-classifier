@@ -3,6 +3,7 @@
 
 \title{Classification of Ailments Given Description of Symptoms}
 \author{Urmzd Mukhammadnaim \\ Ben MacDonald}
+\graphicspath{{./images/}}
 %\bibliographystyle{apacite}
 
 \begin{document}
@@ -214,6 +215,17 @@ and over time, make better classifications. The Dropout layers were used to prev
 as a result of the small dataset provided. Finally, the last Dense layer was used to reduce
 the learned values onto a probability distribution matching the cardinality of the classification size.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[ width=0.5\textwidth ]{fast-text-summary.png}
+	\caption{Fast Text Model Preprocessor - CNN}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[ width=0.5\textwidth]{one-hot-encoder-summary.png}
+	\caption{One Hot Encoding Preprocessor - CNN}
+\end{figure}
+
 \section{First Implementation}
 
 \subsection{Discussion}
@@ -232,23 +244,23 @@ model, and it would be unable to discern semantic relationships between the word
 
 In order to convert the text into a matrix that the CNN would require, we first decided
 upon using One Hot Encoding. This was a simple process that would convert a series of 56
-words into a sparse matrix filled with zeros apart from a 1 in the word’s associated column.
+words into a sparse matrix filled with zeros apart from a 1 in the word`s associated column.
 Though this is an established method, it certainly impacted the performance of the model.
 Since every single column represented a unique word, the dimensions of the sentence matrix
 were 56x4210. This was a result of the 4210 unique stems of words in the corpus. This large
 number of features slowed the model dramatically, and led to the epoch training time to increase.
-We also didn’t believe this was an optimal representation of the words being used, as there was
+We also didn`t believe this was an optimal representation of the words being used, as there was
 no semantic representation through this model which would be provided through the use of word
 embeddings. We would go on to use these in our second implementation of the model.
 
-\section{Results}
+\subsection{Results}
 When observing the accuracy over the number of epochs in the first implementation,
 we found that at the first epoch, validation accuracy was higher than training
 accuracy with values of 0.925 and 0.74 respectively. For the second epoch and onwards,
 however, training accuracy varied around 0.99 and validation accuracy hovered around
-0.9. Figure 1 and Figure 2, however, are measures of how well the model performed
+0.9. \ref{fig:ohep-acc} and \ref{fig:ohep-rec}, however, are measures of how well the model performed
 in regards to classifying the randomized training data. In Figure 3, we mapped the
-model’s capacity to classify our written descriptions as either depression, a
+model`s capacity to classify our written descriptions as either depression, a
 migraine or tetanus.
 
 As observed in Figure 3, the model was highly effective at classing descriptions of
@@ -256,7 +268,7 @@ depression, migraines and tetanus. Depression possessed a precision of 0.83 and 
 recall of 1.0 while tetanus had a precision and recall of 1 and 0.8 respectively.
 For migraines, however, the model returned a precision and recall both of 1.
 
-There are several factors that play into the model’s ability to label these descriptions
+There are several factors that play into the model`s ability to label these descriptions
 accurately. It is evident that the neural network was capable of recognizing the particular
 types of words commonly used when describing the three illnesses as scraped from medical
 websites. An example of an accurately labelled symptom description tested was "my head
@@ -266,8 +278,69 @@ may have been recognized in this specific instance were “head”, “spinning�
 have provided a generalized representation of the language used to describe symptoms to make
 the model perform with a high level of precision and recall.
 
+\begin{figure}[h!]
+	\includegraphics[width=0.5\textwidth]{accuracy-1.png}
+	\caption{One Hot Encoding Preprocessor - CNN Recall}
+	\label{fig:ohep-acc}
+\end{figure}
+
+\begin{figure}[h!]
+	\includegraphics[width=0.5\textwidth]{accuracy.png}
+	\caption{One Hot Encoding Preprocessor - CNN Recall}
+	\label{fig:ohep-rec}
+\end{figure}
+
+
+\begin{figure}[h!]
+	\includegraphics[width=0.5\textwidth]{recall-1.png}
+	\caption{FastText Preprocessor - CNN Recall}
+	\label{fig:ft-rec}
+\end{figure}
+
+\begin{figure}[h!]
+	\includegraphics[width=0.5\textwidth]{recall.png}
+	\caption{FastText Preprocessor - CNN Recall}
+	\label{fig:ft-acc}
+\end{figure}
+
+
 \section{Second Implementation}
 
+\subsection{Discussion}
+
+\subsection{Results}
+
+For the second implementation, we observed that in \ref{fig:ft-acc} and
+\ref{fig:ft-rec}, the validation accuracy and
+recall was greater than that of training accuracy. We believe this can be
+attributed to the regularization we used in the model to avoid overfitting,
+which includes the four dropout layers that we added. This means that the model
+at validation is more general and robust, which would in turn lead to a greater
+validation accuracy and recall than training.
+
+At the first epoch, the accuracy for the validation and training data are both
+approximately 0.62, while recall is 0.57 and 0.58 respectively. The accuracy
+for validation then rose and hovered around 0.73, while trraining oscilated
+around 0.71. In regards to recall, the validation data experienced sudden drops
+at the third and ninth epochs, but otherwise rose to about 0.7, while the
+training data hovered around 0.65. Let us observe the models capacity to classify
+our own written descriptions in Figure 6.
+
+
+
+\chapter{Conclusion}
+
+Through our examinations, we have tested the efficacy of a Convolutional Neural
+Network`s ability to classify descriptions of symptoms of an ailment as their
+most probable diagnoses. In so doing, we created two implementations of a CNN,
+one of which utilized generated training instances and One Hot Encoding while
+the other used sentences from the corpus and word embeddings. Through testing
+the two models ability to classify our written accounts of symptoms, we found
+that the first implementation was more effective at accurately labelling
+descriptions than the second. Going forward, there are several ways in which the
+model can become more robust. The addition of more ailments and associated web
+pages would provide more variety in the possible classifications the model can
+discern.
 
 %\bibliography{report}
 
