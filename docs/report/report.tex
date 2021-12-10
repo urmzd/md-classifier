@@ -228,30 +228,6 @@ the learned values onto a probability distribution matching the cardinality of t
 
 \section{First Implementation}
 
-\subsection{Discussion}
-Over the course of developing the model, there were multiple changes made to the
-structure and layout of the neural network and how we processed the data. In our
-initial implementation, the instances for the training and test data were created
-by randomly generating a series of 56 words from the scraped corpus with the use
-of witten bell smoothing to include unknown words. The quantity of words was selected
-based on the character length of a tweet (280) and the average character length of
-English words (5). This was done due to a lack of adequate datasets which included
-categorized descriptions of symptoms and their associated ailment. There are several
-inherent concerns we had with this method, the most evident being the lack of contextual
-meaning behind the inserted word placement and unpredictable behaviour. For the CNN, the
-only pattern it would be able to recognize would be in the form of the terms fed to the
-model, and it would be unable to discern semantic relationships between the words.
-
-In order to convert the text into a matrix that the CNN would require, we first decided
-upon using One Hot Encoding. This was a simple process that would convert a series of 56
-words into a sparse matrix filled with zeros apart from a 1 in the word`s associated column.
-Though this is an established method, it certainly impacted the performance of the model.
-Since every single column represented a unique word, the dimensions of the sentence matrix
-were 56x4210. This was a result of the 4210 unique stems of words in the corpus. This large
-number of features slowed the model dramatically, and led to the epoch training time to increase.
-We also didn`t believe this was an optimal representation of the words being used, as there was
-no semantic representation through this model which would be provided through the use of word
-embeddings. We would go on to use these in our second implementation of the model.
 
 \subsection{Results}
 When observing the accuracy over the number of epochs in the first implementation,
@@ -278,13 +254,40 @@ may have been recognized in this specific instance were “head”, “spinning�
 have provided a generalized representation of the language used to describe symptoms to make
 the model perform with a high level of precision and recall.
 
+\subsection{Discussion}
+Over the course of developing the model, there were multiple changes made to the
+structure and layout of the neural network and how we processed the data. In our
+initial implementation, the instances for the training and test data were created
+by randomly generating a series of 56 words from the scraped corpus with the use
+of witten bell smoothing to include unknown words. The quantity of words was selected
+based on the character length of a tweet (280) and the average character length of
+English words (5). This was done due to a lack of adequate datasets which included
+categorized descriptions of symptoms and their associated ailment. There are several
+inherent concerns we had with this method, the most evident being the lack of contextual
+meaning behind the inserted word placement and unpredictable behaviour. For the CNN, the
+only pattern it would be able to recognize would be in the form of the terms fed to the
+model, and it would be unable to discern semantic relationships between the words.
+
+In order to convert the text into a matrix that the CNN would require, we first decided
+upon using One Hot Encoding. This was a simple process that would convert a series of 56
+words into a sparse matrix filled with zeros apart from a 1 in the word`s associated column.
+Though this is an established method, it certainly impacted the performance of the model.
+Since every single column represented a unique word, the dimensions of the sentence matrix
+were 56x4210. This was a result of the 4210 unique stems of words in the corpus. This large
+number of features slowed the model dramatically, and led to the epoch training time to increase.
+We also didn`t believe this was an optimal representation of the words being used, as there was
+no semantic representation through this model which would be provided through the use of word
+embeddings. We would go on to use these in our second implementation of the model.
+
 \begin{figure}[h!]
+	\centering
 	\includegraphics[width=0.5\textwidth]{accuracy-1.png}
 	\caption{One Hot Encoding Preprocessor - CNN Recall}
 	\label{fig:ohep-acc}
 \end{figure}
 
 \begin{figure}[h!]
+	\centering
 	\includegraphics[width=0.5\textwidth]{accuracy.png}
 	\caption{One Hot Encoding Preprocessor - CNN Recall}
 	\label{fig:ohep-rec}
@@ -292,12 +295,14 @@ the model perform with a high level of precision and recall.
 
 
 \begin{figure}[h!]
+	\centering
 	\includegraphics[width=0.5\textwidth]{recall-1.png}
 	\caption{FastText Preprocessor - CNN Recall}
 	\label{fig:ft-rec}
 \end{figure}
 
 \begin{figure}[h!]
+	\centering
 	\includegraphics[width=0.5\textwidth]{recall.png}
 	\caption{FastText Preprocessor - CNN Recall}
 	\label{fig:ft-acc}
@@ -306,7 +311,6 @@ the model perform with a high level of precision and recall.
 
 \section{Second Implementation}
 
-\subsection{Discussion}
 
 \subsection{Results}
 
@@ -326,7 +330,21 @@ at the third and ninth epochs, but otherwise rose to about 0.7, while the
 training data hovered around 0.65. Let us observe the models capacity to classify
 our own written descriptions in Figure 6.
 
+In Figure 6, we see that the model was fairly effective at classifying
+depression, which had a precision and recall of 0.8, but struggled to accurately
+label migraines and tetanus. When classifying migraines, the model had a
+precision of 0.56 and recall of 1, however tetanus had a precision and recall of
+0.
 
+The poorer results of this implementation can be attributed to several factors.
+One of these may be that migraines and tetanus share
+
+\subsection{Discussion}
+The intent behind the use of the FastText model primarly lied in
+a belief, the retention of semantic meaning would allow the
+model to connect terminology from the general domain to
+terminology fom the medical domain. While there was some preliminary
+indication that similar words were in close proximity
 
 \chapter{Conclusion}
 
