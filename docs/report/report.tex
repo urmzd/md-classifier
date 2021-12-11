@@ -3,6 +3,7 @@
 \usepackage{indentfirst}
 \usepackage{url}
 \usepackage{apacite}
+\usepackage{float}
 \bibliographystyle{apacite}
 
 
@@ -194,7 +195,8 @@ with the resulting vector from the operating described\cite{2016}.
 As there existed little data, only 20\% of the input was withheld for validation.
 In this section, we describe the reasoning for the architecture we decided upon.
 It should be noted that the architecture did not depend on the pre-processor.
-Hence, there is no difference in the architecture of the classifier between the two implementations.
+Hence, there is no difference in the architecture of the classifier between the two implementations 
+(Figures \ref{fig:ftsummary} and \ref{fig:ohesummary}).
 
 \subsection{Layers}
 The primary components of the CNN consisted of 2D Convolution layers,
@@ -211,16 +213,18 @@ and over time, make better classifications. The Dropout layers were used to prev
 as a result of the small dataset. Finally, the last Dense layer was used to reduce
 the learned values onto a probability distribution matching the cardinality of the classification size\cite{chollet2015keras}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[ width=0.5\textwidth ]{fast-text-summary.png}
 	\caption{Fast Text Model Preprocessor - CNN}
+	\label{fig:ftsummary}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[ width=0.5\textwidth]{one-hot-encoder-summary.png}
 	\caption{One Hot Encoding Preprocessor - CNN}
+	\label{fig:ohesummary}
 \end{figure}
 
 \section{First Implementation}
@@ -228,40 +232,40 @@ the learned values onto a probability distribution matching the cardinality of t
 
 \subsection{Results}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{accuracy.png}
 	\caption{One Hot Encoding Preprocessor - CNN Accuracy}
 	\label{fig:ohep-acc}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{recall.png}
 	\caption{One Hot Encoding Preprocessor - CNN Recall}
 	\label{fig:ohep-rec}
 \end{figure}
 
-\begin{figure}[h!]
+When observing the accuracy in the first implementation,
+we found that at the beginning, validation accuracy was higher than training
+accuracy with values of 0.925 and 0.74 respectively. From the second epoch,
+training accuracy oscillated around 0.99 and validation accuracy hovered around
+0.9, as demonstrated by Figures \ref{fig:ohep-acc} and \ref{fig:ohep-rec}. 
+Afterwards, we mapped the
+model's capacity to classify our written descriptions as either "migraine", "depression" or "tetanus".
+
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{confusion_matrix_ohe.png}
 	\caption{One Hot Encoding Preprocessor - CNN Confusion Matrix}
 	\label{fig:ohep-con}
 \end{figure}
 
-When observing the accuracy over the number of epochs in the first implementation,
-we found that at the first epoch, validation accuracy was higher than training
-accuracy with values of 0.925 and 0.74 respectively. For the second epoch and onwards,
-however, training accuracy varied around 0.99 and validation accuracy hovered around
-0.9. \ref{fig:ohep-acc} and \ref{fig:ohep-rec}, however, are measures of how well the model performed
-in regards to classifying the randomized training data. In \ref{fig:ohep-con}, we mapped the
-model's capacity to classify our written descriptions as either depression, a
-migraine or tetanus.
-
-As observed in \ref{fig:ohep-con}, the model was highly effective at classing descriptions of
-depression, migraines and tetanus. Depression possessed a precision of 0.83 and a
-recall of 1.0 while tetanus had a precision and recall of 1 and 0.8 respectively.
-For migraines, however, the model returned a precision and recall both of 1.
+The model was highly effective at classing descriptions of
+depression, migraines and tetanus, as observed in Figure \ref{fig:ohep-con}. 
+Depression had a precision of 0.83 and a
+recall of 1.0 while tetanus had a precision and recall of 1.0 and 0.8 respectively.
+For migraines, the model returned both a precision and recall of 1.0.
 
 \subsection{Discussion}
 There are several factors that play into the model's ability to label these descriptions
@@ -276,61 +280,57 @@ the model perform with a high level of precision and recall.
 
 The use of One Hot Encoding certainly impacted the run-time performance of the model.
 Since every single column represented a unique word, the dimensions of the sentence matrix
-were 56x4210. This was a result of the 4210 unique stems of words in the corpus. This large
-number of features slowed the model dramatically, and led to the epoch training time to increase.
+were 56x4210. This was a result of the 4210 unique word stems in the corpus. The large
+number of features slowed the model dramatically, and led to an increased training time.
 In an attempt to reduce dimensionality and provide the model with some form of semantic
-meaning, we deecided to use word embeddings in the next implementation.
+meaning, we decided to use word embeddings in the next implementation.
 
 \section{Second Implementation}
 
 \subsection{Results}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{accuracy-1.png}
 	\caption{FastText Preprocessor - CNN Accuracy}
 	\label{fig:ft-acc}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{recall-1.png}
 	\caption{FastText Preprocessor - CNN Recall}
 	\label{fig:ft-rec}
 \end{figure}
 
-For the second implementation, we observed that in \ref{fig:ft-acc} and
-\ref{fig:ft-rec}, the validation accuracy and
-recall was greater than that of training accuracy. We believe this can be
-attributed to the regularization we used in the model to avoid overfitting,
-which includes the four dropout layers that we added. This means that the model
-at validation is more general and robust, which would in turn lead to a greater
-validation accuracy and recall than training.
+For the second implementation, we observed that validation accuracy and
+recall was greater than that of the training set, as seen in Figures \ref{fig:ft-acc} and
+\ref{fig:ft-rec}.
 
 At the first epoch, the accuracy for the validation and training data are both
 approximately 0.62, while recall is 0.57 and 0.58 respectively. The accuracy
-for validation then rose and hovered around 0.73, while trraining oscilated
+for validation then rose and hovered around 0.73, while training oscillated
 around 0.71. In regards to recall, the validation data experienced sudden drops
 at the third and ninth epochs, but otherwise rose to about 0.7, while the
-training data hovered around 0.65. Let us observe the models capacity to classify
-our own written descriptions in \ref{fig:ft-con}.
+training data hovered around 0.65.
 
-\begin{figure}[h!]o
+\begin{figure}[H]o
 	\centering
 	\includegraphics[width=0.5\textwidth]{confusion_matrix_ft.png}
 	\caption{FastText Preprocessor - CNN Confusion Matrix}
 	\label{fig:ft-con}
 \end{figure}
 
-In \ref{fig:ft-con}, we see that the model was fairly effective at classifying
-depression, which had a precision and recall of 0.8, but struggled to accurately
+We see that the model had some success at classifying custom descriptions, as visible in 
+Figure \ref{fig:ft-con}.
+For depression, both precision and recall were 0.8, but struggled to accurately
 label migraines and tetanus. When classifying migraines, the model had a
 precision of 0.56 and recall of 1, however tetanus had a precision and recall of
 0.
 
 \subsection{Discussion}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{proximate-words.png}
 	\caption{The 10 most proximate words for depression, suicide, tetanus, stiff, migraine, head pain (in order).}
@@ -338,31 +338,35 @@ precision of 0.56 and recall of 1, however tetanus had a precision and recall of
 \end{figure}
 
 The intent behind the use of the FastText model primarly lied in
-a belief, the retention of semantic meaning would allow the
+the belief, that the retention of semantic meaning would allow the
 model to connect terminology from the general domain to
 terminology fom the medical domain. While there was some preliminary
 indication that similar words were in close proximity, most words
 only differed in punctuation as seen in Figure \ref{fig:prox-words}.
-Simply put, the semantic meaning of each sentence was likely lost
-during processing.
+The semantic meaning of each sentence was likely lost during processing.
 
 Furthermore, some sentences contained largely irrelevent bodies, such as
 citations or questionaires. Thus, the dataset was diluted with elements that
 potentially strayed the CNN from making correct classifications. This can be
-seen in the model's inability to correctly classify custom Tetanus sentences,
-where a majority of the citations where found. In retrospective, the drop
+seen in the model's inability to correctly classify custom Tetanus descriptions,
+where a majority of citations where found. In retrospect, the drop
 in accuracy could have been prevented through stricter filtering of the data
-prior to feeding it to FastText model.
+prior to feeding it to the FastText model.
 
+We believe that the validation accuracy and recall was higher than that of the training set's
+due to the regularization we used in the model to avoid overfitting.
+This includes the four dropout layers that we added. The model
+at validation is more general and robust, which in turn led to a greater
+validation accuracy and recall.
 
 \chapter{Conclusion}
 
-Through our examinations, we have tested the efficacy of a Convolutional Neural
-Network's ability to classify descriptions of symptoms of an ailment as their
-most probable diagnoses. In so doing, we created two implementations of a CNN,
+Through our examinations, we have tested the efficacy of a convolutional neural
+network's ability to classify descriptions of symptoms of an ailment as their
+most probable diagnoses. We created two implementations of a CNN,
 one of which utilized generated training instances and One Hot Encoding while
 the other used sentences from the corpus and word embeddings. Through testing
-the two models ability to classify our written accounts of symptoms, we found
+the two models' ability to classify our written accounts of symptoms, we found
 that the first implementation was more effective at accurately labelling
 descriptions than the second. Going forward, there are several ways in which the
 model can become more robust. The addition of more ailments and associated web
