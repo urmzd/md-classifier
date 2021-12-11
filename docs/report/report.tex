@@ -1,12 +1,14 @@
 \documentclass[12pt]{report}
 \usepackage{graphicx}
 \usepackage{indentfirst}
+\usepackage{url}
+\usepackage{apacite}
+\bibliographystyle{apacite}
 
 
 \title{Classification of Ailments Given Description of Symptoms}
 \author{Urmzd Mukhammadnaim \\ Ben MacDonald}
 \graphicspath{{./images/}}
-%\bibliographystyle{apacite}
 
 \begin{document}
 \maketitle
@@ -17,57 +19,56 @@
 	healthcare professional. Due to the large quantity of varying results appearing
 	once someone searches their current symptoms, we developed a Convolutional
 	Neural Network (CNN) that reduces this clutter by returning only the most
-	probable medical condition given the user's description. Forthcoming, we
-	decided to limit the possible classifications to the medical conditions,
-	migraine, tetanus and depression. To train the model, data is obtained by
-	scraping text data from various medical websites which were written using
-	casual terminology to form a corpus. The corpus was then vectorized using
-	one-hot encoding in one implementation and the FastText model in another. Once
-	the model is trained, we then analyzed its ability to classify our own
-	descriptions of migraines, depression and tetanus.
+	probable medical condition given the user's description.
+	To address the problem, we introduce two CNN implementations with different
+	preprocessors. The first implementation explores the use of a One Hot Encoder,
+	while the second implementation utilizes a FastText model trained via
+	unsupervised learning. Through the retrieval of open source data from various medical platforms such
+	as UpToDate and Mayo Clinic, a recall value of 90\% is achieved.
 \end{abstract}
+
 \chapter{Introduction}
-Through the ease of access to information provided by the internet for 3.2
-billion people, individuals are able to obtain data in a wide array of topics
-nearly instantaneously. Among these searches are descriptions of symptoms the
-user is experiencing and attempting to find a root cause for. According to a
-study conducted by Eligibility, approximately 89\% of American patients search
-what they are experiencing on a search engine prior to visiting their doctor.
+Individuals are able to obtain data in a wide array of topics nearly
+instantaneously through the internet. Among these searches are descriptions of
+symptoms people are experiencing in an attempt to find the primary cause.
+According to a study conducted by Eligibility, approximately 89\% of American
+patients search what they are experiencing on a search engine prior to visiting
+their doctor \cite{guarino_2019}.
 
-Upon entering their symptoms, however, they will find a wide array of links to
-sources such as WebMD and Mayoclinic. These pages will typically contain a
-topic ailment, a description of it, a list of potential symptoms and a series
-of treatments. In this current series of interactions, the user experience may
-be negatively impacted by an overwhelming quantity of information. Depending on
-the description, the user may observe contradicting as well as rarer and more
-unlikely diagnoses. This is further exaggerated when the user enters a more
-general description such as “pounding headache”, which can be attributed to a
-large number of illnesses.
+The result of the query often results in a list of websites such as WebMD and
+MayoClinic. These pages will typically contain an ailment, a description,
+a list of potential symptoms, as well as possible treatments. In these
+encounters, the user may have a negative experience as a direct result of
+the overwhelming quantity of information potentially shown. Additionally,
+based on the description provided, the user may also find conflicting resources.
+Contradictory information is further exaggerated by broader descriptions,
+such as "pounding head", which can be attributed to a large number of illnesses.
 
-This problem led us to consider how to structure a process that streamlines
-this preliminary research of possible diagnoses prior to visiting a medical
-doctor. As opposed to using a search engine which would produce a wide range of
-articles, we viewed the ideal scenario as condensing the actions to entering
-the text into a model that would provide the singular most probable diagnosis.
-To implement this functionality, we determined three necessary objectives:
-\begin{enumerate}
-	\item Acquire training and testing data that includes the description of an ailment
-	\item Develop a model that produces a series of probabilities for each available ailments given data
-	\item Implement this model in classifying text descriptions of a series of symptoms provided by the user
-\end{enumerate}
+This problem led us to consider how to structure a process that streamlines this
+preliminary research. As opposed to using a search engine which indexes its data primarly
+on a platform's metadata, we viewed the ideal scenario as condensing the actions
+to entering the text into a model that would provide the singular most probable
+diagnosis. To implement this functionality, we determined three necessary
+objectives:
 
-In order to gather classified training and testing data, we scraped text from
-websites which included descriptions of the ailments and its symptoms with
-casual language. This was done in order to improve the likeness between the
-training data and the user text the model would classify. There were several
-possible approaches we could have taken to develop a model for this
-multi-classification problem which we considered. Among these, we found that
-Convolutional Neural Networks (CNNs) provided a flexible model which performed
-well with classifying text, and has previously been used to classify symptoms
-at a sentence level to a great degree of success. We were then able to observe
-the network's capacity to classify training and testing data, and proceeded to
-test its ability to categorize our own descriptions of any of the three
-ailments.
+\begin{itemize}
+	\item Acquire a dataset that includes the descriptions of an ailment.
+	\item Construct a model that produces a probability distribution of all the available classifications.
+	\item Utilize the developed model to classify symptom descriptions as an ailment.
+\end{itemize}
+
+To develop our dataset, we scraped text from websites which included
+descriptions of ailments and their associated symptoms. Moreover, only websites
+containing "semi-informal" terminology was used. This was done in order to
+improve the similarity between the training data and the input the model would
+likely recieve from a user. There were several possible approaches we could have
+taken to develop a model for this multi-classification problem.
+Among these, we found that Convolutional Neural Networks (CNNs)
+provided a flexible model which performed well with classifying text, and has
+previously been used to classify symptoms at a sentence level to a great degree
+of success. We were then able to observe the network's capacity to classify
+training and testing data, and proceeded to test its ability to categorize our
+own descriptions of any of the three ailments.
 
 \chapter{Related Works}
 There are various ways in which we could have the user interact with the
@@ -222,6 +223,7 @@ the learned values onto a probability distribution matching the cardinality of t
 	\includegraphics[ width=0.5\textwidth ]{fast-text-summary.png}
 	\caption{Fast Text Model Preprocessor - CNN}
 \end{figure}
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[ width=0.5\textwidth]{one-hot-encoder-summary.png}
@@ -247,6 +249,13 @@ the learned values onto a probability distribution matching the cardinality of t
 	\label{fig:ohep-rec}
 \end{figure}
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{confusion_matrix_ohe.png}
+	\caption{One Hot Encoding Preprocessor - CNN Confusion Matrix}
+	\label{fig:ohep-con}
+\end{figure}
+
 When observing the accuracy over the number of epochs in the first implementation,
 we found that at the first epoch, validation accuracy was higher than training
 accuracy with values of 0.925 and 0.74 respectively. For the second epoch and onwards,
@@ -256,12 +265,6 @@ in regards to classifying the randomized training data. In \ref{fig:ohep-con}, w
 model's capacity to classify our written descriptions as either depression, a
 migraine or tetanus.
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{confusion_matrix_ohe.png}
-	\caption{One Hot Encoding Preprocessor - CNN Confusion Matrix}
-	\label{fig:ohep-con}
-\end{figure}
 
 As observed in Figure 3, the model was highly effective at classing descriptions of
 depression, migraines and tetanus. Depression possessed a precision of 0.83 and a
@@ -335,6 +338,13 @@ precision of 0.56 and recall of 1, however tetanus had a precision and recall of
 
 \subsection{Discussion}
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{proximate-words.png}
+	\caption{The 10 most proximate words for depression, suicide, tetanus, stiff, migraine, head pain (in order).}
+	\label{fig:prox-words}
+\end{figure}
+
 The intent behind the use of the FastText model primarly lied in
 a belief, the retention of semantic meaning would allow the
 model to connect terminology from the general domain to
@@ -353,15 +363,6 @@ in accuracy could have been prevented through stricter filtering of the data
 prior to feeding it to FastText model.
 
 
-
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{proximate-words.png}
-	\caption{The 10 most proximate words for depression, suicide, tetanus, stiff, migraine, head pain (in order).}
-	\label{fig:prox-words}
-\end{figure}
-
 \chapter{Conclusion}
 
 Through our examinations, we have tested the efficacy of a Convolutional Neural
@@ -376,6 +377,6 @@ model can become more robust. The addition of more ailments and associated web
 pages would provide more variety in the possible classifications the model can
 discern.
 
-%\bibliography{report}
+\bibliography{report}
 
 \end{document}
