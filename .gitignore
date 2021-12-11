@@ -23,7 +23,3 @@ docs/report/*
 docs/p1/*
 !*.bib
 !*.tex
-
-# Ignore saved model
-resources/**/*
-!resources/data/**/*
