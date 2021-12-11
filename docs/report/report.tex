@@ -13,6 +13,7 @@
 
 \begin{document}
 \maketitle
+\listoffigures
 \tableofcontents
 \begin{abstract}
 	In this paper, we address the challenges experienced in the preliminary research phase
@@ -43,7 +44,7 @@ encounters, the user may have a negative experience as a direct result of
 the overwhelming quantity of information potentially shown. Additionally,
 based on the description provided, the user may also find conflicting resources.
 Contradictory information is further exaggerated by broader descriptions,
-such as "pounding head", which can be attributed to a large number of illnesses.
+such as ``pounding head", which can be attributed to a large number of illnesses.
 
 This problem led us to consider how to structure a process that streamlines this
 preliminary research. As opposed to using a search engine which indexes its data primarly
@@ -69,23 +70,23 @@ provided a flexible model which performed well with classifying text, and has be
 used to classify symptoms at a sentence level to a great degree
 of success\cite{HughesLKS17}. Afterwards, we were able to observe the network's capacity to classify
 the dataset, and proceeded to test its ability to categorize our
-own descriptions of the three ailments, depression, migraines and tetanus.
+own descriptions of the three ailments, "depression", "migraine" and "tetanus".
 
 \chapter{Related Works}
 There are various ways in which we could have the user interact with the
 model. Kurup and Shetty document their creation of an conversational chatbot
-that utilizes neural networks and Decision Tree Classifiers to classify the
+that utilizes neural networks and decision tree classifiers to classify the
 ailment that a particular user is experiencing given responses to a
 questionnaire. Due to a sparsity of publicly available
 datasets, they created a file with custom patterns classified by their
-expected responses. They then used this to train a neural network composed of two
-fully-connected layers, as well as dropout layers to prevent overfitting. The Decision
-Tree Classifier was then trained with a dataset of binary values indicating
+expected responses. They used the response file to train a neural network composed of two
+fully-connected layers, as well as dropout layers to prevent overfitting. The decision
+tree classifier was trained with a dataset of binary values indicating
 whether a symptom is associated with a particular ailment. When
 interacting with the neural network via messaging, the user could indicate
 that they wished to take a “prognosis quiz”, where they would answer yes or
 no to experiencing a symptom. The neural network was able to achieve
-an accuracy of 95\%. The Decision Tree Classifier functioned as intended. The
+an accuracy of 95\%. The decision tree classifier functioned as intended. The
 implementation, however, does not provide a seamless series of interactions
 for the user as they converse with the chatbot\cite{kurup_2021}.
 
@@ -96,15 +97,15 @@ at the sentence level, and compared their accuracy to other NLP techniques.
 Their vectorization model was trained through the use of a dataset containing
 15,000 clinical research documents. A series of clinical articles were
 labeled as one of 26 medical categories with 4000 sentences being
-randomly selected for each classification. These sentences were then vectorized
+randomly selected for each classification. These sentences were vectorized
 by the Word2vec model and used to train the CNN. The setup went on to
 perform with an accuracy of 68\%. The model outperformed other text classification techniques
 such as logistic regression using bag-of-words, which possessed an
 accuracy of 51\%. The former model was effective at displaying the success of CNNs
 in this context and on a larger scale with 26 individual ailments. The use of
-word embeddings provided the neural network greater possible depths of
+word embeddings provided the neural network greater depths of
 understanding for the relationships between separate words and their
-associations. These benefits, however, are dependent on the large quantity of
+associations. These benefits, however, are dependent on large quantities of
 available data to train the Word2vec model\cite{HughesLKS17}.
 
 There is a clear distinction between classifying professional medical text
@@ -128,9 +129,9 @@ One of the challenges in this endeavour was finding accessible and well
 documented open-source records. As medical data was difficult to come across, due
 to HIPAA, PIPEDA, and other laws that bar hospitals, and various medical
 organizations from distributing patients' health documents, we had to settle
-for medical encyclopedias and articles. To ensure a baseline consistency in the data used across
+for medical encyclopedias and articles. To ensure some consistency in the data used across
 the desired classifications, the descriptions were pulled from the same sites.
-Between articles on the same website, however, the detail in which the article
+Between articles on the same website, the detail in which the article
 was written varied greatly. Some articles had more advertisements, others had
 more embedded miscellaneous content, and most of them differed in document
 structure. In other words, the data could not be accessed directly via its url
@@ -140,7 +141,7 @@ irrelevant content within them.  As a result, a greater burden was moved onto
 the preprocessor to ensure clean and usable data was entering the CNN. It
 should also be noted that we used the automation library “pyppeteer” in lieu of
 a simple “GET” retrieval of the HTML document to prevent issues accessing the
-data due to Server Side Rendering (SSR). As a result, there was greater
+data due to Server Side Rendering (SSR). As a result, there existed greater
 overhead during this phase.
 
 \section{Data Processing}
@@ -185,7 +186,7 @@ capable of translating words into a $R$ dimension vector.
 After the FastText model was trained, each word in the vocublary was projected onto
 the embedding space, resulting in vectors of cardinality $R$.
 
-While each word had the same length, the sentence length varied. As a result,
+While each word had the same vector length, the sentence length varied. As a result,
 a transformer $T_2$ was created to pad the given sequences. The algorithm
 applied consisted of retrieving the vector that resulted of a coordinate-wise
 max or min. Alternating between max and min operations, we injected the sequence
@@ -227,7 +228,9 @@ the learned values onto a probability distribution matching the cardinality of t
 	\label{fig:ohesummary}
 \end{figure}
 
-\section{First Implementation}
+\chapter{Analysis}
+
+\section{CNN with One Hot Encoding}
 
 
 \subsection{Results}
@@ -271,7 +274,7 @@ For migraines, the model returned both a precision and recall of 1.0.
 There are several factors that play into the model's ability to label these descriptions
 accurately. It is evident that the neural network was capable of recognizing the particular
 types of words commonly used when describing the three illnesses as scraped from medical
-websites. An example of an accurately labelled symptom description tested was "my head
+websites. An example of an accurately labelled symptom description tested was ``my head
 feels like it's spinning, pain in head, pounding throbbing". Keywords that the model
 may have recognized in this specific instance were “head”, “spinning”, “pounding” and
 “throbbing”. The 750 generated instances for each label used to train the model appear to
@@ -285,7 +288,7 @@ number of features slowed the model dramatically, and led to an increased traini
 In an attempt to reduce dimensionality and provide the model with some form of semantic
 meaning, we decided to use word embeddings in the next implementation.
 
-\section{Second Implementation}
+\section{CNN with FastText}
 
 \subsection{Results}
 
@@ -314,7 +317,7 @@ around 0.71. In regards to recall, the validation data experienced sudden drops
 at the third and ninth epochs, but otherwise rose to about 0.7, while the
 training data hovered around 0.65.
 
-\begin{figure}[H]o
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{confusion_matrix_ft.png}
 	\caption{FastText Preprocessor - CNN Confusion Matrix}
@@ -340,7 +343,7 @@ precision of 0.56 and recall of 1, however tetanus had a precision and recall of
 The intent behind the use of the FastText model primarly lied in
 the belief, that the retention of semantic meaning would allow the
 model to connect terminology from the general domain to
-terminology fom the medical domain. While there was some preliminary
+terminology fom the medical domain\cite{rehurek2011gensim}. While there was some preliminary
 indication that similar words were in close proximity, most words
 only differed in punctuation as seen in Figure \ref{fig:prox-words}.
 The semantic meaning of each sentence was likely lost during processing.
@@ -348,16 +351,16 @@ The semantic meaning of each sentence was likely lost during processing.
 Furthermore, some sentences contained largely irrelevent bodies, such as
 citations or questionaires. Thus, the dataset was diluted with elements that
 potentially strayed the CNN from making correct classifications. This can be
-seen in the model's inability to correctly classify custom Tetanus descriptions,
-where a majority of citations where found. In retrospect, the drop
+seen in the model's inability to correctly classify custom tetanus descriptions,
+where a majority of miscellaneous content was found. In retrospect, the drop
 in accuracy could have been prevented through stricter filtering of the data
 prior to feeding it to the FastText model.
 
 We believe that the validation accuracy and recall was higher than that of the training set's
 due to the regularization we used in the model to avoid overfitting.
-This includes the four dropout layers that we added. The model
+This includes the four dropout layers that we added. As a result, the model
 at validation is more general and robust, which in turn led to a greater
-validation accuracy and recall.
+accuracy and recall.
 
 \chapter{Conclusion}
 
@@ -365,7 +368,8 @@ Through our examinations, we have tested the efficacy of a convolutional neural
 network's ability to classify descriptions of symptoms of an ailment as their
 most probable diagnoses. We created two implementations of a CNN,
 one of which utilized generated training instances and One Hot Encoding while
-the other used sentences from the corpus and word embeddings. Through testing
+the other used sentences from the corpus and a FastText embedding preprocessor\cite{rehurek2011gensim}. 
+Through testing
 the two models' ability to classify our written accounts of symptoms, we found
 that the first implementation was more effective at accurately labelling
 descriptions than the second. Going forward, there are several ways in which the
