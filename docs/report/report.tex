@@ -17,8 +17,8 @@
 	In this paper, we address the challenges experienced in the preliminary research phase
 	of ailment diagnosis performed by many individuals prior to visiting a
 	healthcare professional. Due to the large quantity of varying results appearing
-	once someone searches their current symptoms, we developed a Convolutional
-	Neural Network (CNN) that reduces this clutter by returning only the most
+	once someone searches their current symptoms, we developed a convolutional
+	neural network (CNN) that reduces this clutter by returning only the most
 	probable medical condition given the user's description.
 	To address the problem, we introduce two CNN implementations with different
 	preprocessors. The first implementation explores the use of a One Hot Encoder,
@@ -63,139 +63,132 @@ containing "semi-informal" terminology was used. This was done in order to
 improve the similarity between the training data and the input the model would
 likely recieve from a user. There were several possible approaches we could have
 taken to develop a model for this multi-classification problem.
-Among these, we found that Convolutional Neural Networks (CNNs)
-provided a flexible model which performed well with classifying text, and has
-previously been used to classify symptoms at a sentence level to a great degree
-of success. We were then able to observe the network's capacity to classify
-training and testing data, and proceeded to test its ability to categorize our
-own descriptions of any of the three ailments.
+Among these, we found that CNNs
+provided a flexible model which performed well with classifying text, and has been
+used to classify symptoms at a sentence level to a great degree
+of success\cite{HughesLKS17}. Afterwards, we were able to observe the network's capacity to classify
+the dataset, and proceeded to test its ability to categorize our
+own descriptions of the three ailments, depression, migraines and tetanus.
 
 \chapter{Related Works}
 There are various ways in which we could have the user interact with the
 model. Kurup and Shetty document their creation of an conversational chatbot
-that utilizes Neural Networks and Decision Tree Classifiers to classify the
-ailment that a particular user is experiencing given their responses to
-questions about their symptoms. Due to a sparsity of publicly available
-datasets, they created a JSON file with custom patterns classified by their
-expected responses, and used this to train a Neural Network composed of two
-dense layers, as well as dropout layers to prevent overfitting. The Decision
-Tree Classifier was then trained with a dataset of binary values marking
-whether or not a symptom is associated with a particular ailment. When
-interacting with the Neural Network via messaging, the user could indicate
+that utilizes neural networks and Decision Tree Classifiers to classify the
+ailment that a particular user is experiencing given responses to a
+questionnaire. Due to a sparsity of publicly available
+datasets, they created a file with custom patterns classified by their
+expected responses. They then used this to train a neural network composed of two
+fully-connected layers, as well as dropout layers to prevent overfitting. The Decision
+Tree Classifier was then trained with a dataset of binary values indicating
+whether a symptom is associated with a particular ailment. When
+interacting with the neural network via messaging, the user could indicate
 that they wished to take a “prognosis quiz”, where they would answer yes or
-no to experiencing a symptom. The maximum performance of the Neural Network
-reached 95\% accuracy, and the Decision Tree Classifier functioned well. This
+no to experiencing a symptom. The neural network was able to achieve
+an accuracy of 95\%. The Decision Tree Classifier functioned as intended. The
 implementation, however, does not provide a seamless series of interactions
-for the user as they converse with a chatbot and, in order to classify their
-symptoms, switch to a yes or no questionnaire.
+for the user as they converse with the chatbot\cite{kurup_2021}.
 
 Utilizing CNNs in Natural Language Processing (NLP) is growing in popularity,
 with several papers documenting their efficacy in text classification. Hughes
 et al describe their use of a Word2vec model and CNN to classify medical text
-at the sentence level, and compare their accuracy to other NLP techniques.
+at the sentence level, and compared their accuracy to other NLP techniques.
 Their vectorization model was trained through the use of a dataset containing
-15,000 clinical research. A series of clinical articles were then each
-pre-categorized as one of 26 medical categories with 4000 sentences being
+15,000 clinical research documents. A series of clinical articles were
+labeled as one of 26 medical categories with 4000 sentences being
 randomly selected for each classification. These sentences were then vectorized
-by the Word2vec model and used to train the CNN. This setup then went on to
-perform with 68\% accuracy, out performing other text classification techniques
-such as a bag-of-words and logistic regression model which possessed an
-accuracy of 51\%. This is an effective model that displays the success of CNNs
+by the Word2vec model and used to train the CNN. The setup went on to
+perform with an accuracy of 68\%. The model outperformed other text classification techniques
+such as logistic regression using bag-of-words, which possessed an
+accuracy of 51\%. The former model was effective at displaying the success of CNNs
 in this context and on a larger scale with 26 individual ailments. The use of
-word embeddings provides the neural network greater possible depths of
+word embeddings provided the neural network greater possible depths of
 understanding for the relationships between separate words and their
 associations. These benefits, however, are dependent on the large quantity of
-available data to train the Word2vec model.
+available data to train the Word2vec model\cite{HughesLKS17}.
 
-There is an evident distinction between classifying professional medical text
+There is a clear distinction between classifying professional medical text
 and casual descriptions with informal terminology. Gambhir et al studied the
-accuracy of a Convolutional Neural Network-Long Short Term Memory (CNN-LSTM)
-model in regards to monitoring social media for posts mentioning a drug name,
-and classifying them as presenting personal medication intake, possible
-medication intake and non-intake. In this setup, the CNN would take
-vectorized training data from Word2vec and apply a series of convolution
-layers and max pooling layers. The output being a series of feature maps,
-this would then be input into the LSTM model, which in turn feeds data to a
-series of fully connected layers and classifies the data as one of the three
-possible categories. The CNN-LSTM performed with the greatest precision in
+accuracy of a convolutional neural network-long short term memory (CNN-LSTM)
+model in the context of monitoring social media for posts mentioning a drug name.
+It would classify them as one of three categories indicating the degree of medication.
+The CNN-LSTM performed with the greatest precision in
 comparison to other tested models, but a lower recall than the LSTM model.
 The distinction between professional medical text and casual descriptions is
-an important one to make. There is a large difference between the two both in
+an important one to make. There is a large difference between the two in
 terms of sentence structure and diction. Professional text can contain a
-variety of rare terms for specific conditions which can impact a models
-capacity to properly classify a description should a large corpus be
-unavailable.
+variety of rare terms which can impact a model's
+capacity to properly classify a description, should a large corpus be
+unavailable\cite{tokala-etal-2018-deep}.
 
 
 \chapter{Methodology}
 \section{Data Collection}
-One of the challenges in the endeavour was finding accessible and well
-documented open-source records. As medical data is difficult to come across due
-to HIPAA, PIPEDA, and other laws that bar hospitals, and other medical
-organizations from distributing patient’s health documents, we had to settle
-for medical encyclopedias and clinics that published articles intended for
-educating individuals. To ensure baseline consistency in the data used across
+One of the challenges in this endeavour was finding accessible and well
+documented open-source records. As medical data was difficult to come across, due
+to HIPAA, PIPEDA, and other laws that bar hospitals, and various medical
+organizations from distributing patients' health documents, we had to settle
+for medical encyclopedias and articles. To ensure a baseline consistency in the data used across
 the desired classifications, the descriptions were pulled from the same sites.
-However, between articles on the same website, the detail in which the article
+Between articles on the same website, however, the detail in which the article
 was written varied greatly. Some articles had more advertisements, others had
-more miscellaneous content embedded, and most of them differed in document
+more embedded miscellaneous content, and most of them differed in document
 structure. In other words, the data could not be accessed directly via its url
-and DOM selector. The data was collected using the top-most DOM element
+and Document Object Model (DOM) selector. The data was collected using the top-most DOM element
 encapsulating all the desired information, resulting in documents with
 irrelevant content within them.  As a result, a greater burden was moved onto
 the preprocessor to ensure clean and usable data was entering the CNN. It
 should also be noted that we used the automation library “pyppeteer” in lieu of
-a simple “GET” retrieval of the html document to prevent issues accessing the
-data due to Server Side Rendering (SSR). Consequently, this resulted in greater
+a simple “GET” retrieval of the HTML document to prevent issues accessing the
+data due to Server Side Rendering (SSR). As a result, there was greater
 overhead during this phase.
 
 \section{Data Processing}
 After the extraction and consequent concatenation of the documents for each
 classification, we explored two preprocessor implementations. We first describe
-the use of One Hot Encoder and Witten-Bell Probability Distribution to retain
-morphological-level information, and generate unique sets of words that can
-later be fed into the CNN. Subsequently, we analyze the use of the FastText
+the use of One Hot Encoder\cite{scikit-learn} and Witten-Bell Probability Distribution\cite{bird2009natural}, to retain
+morphological-level information and generate unique sets of words that could
+later be fed into the CNN. Subsequently, we analyze the use of the FastText\cite{rehurek2011gensim}
 model as a means of retaining semantic-level information, and ensuring words
 with similar words appear closer together in the subspace.
 
 \subsection{One Hot Encoding and Witten Bell Generation}
-After the documents were tokenized, the text was piped into the transformer $T1$ which applied a
-series of reduction operations to remove punctuation and ultimately break the words
-into their stems. The result of $T1$ consisted of a set of unique stems $D_n$
-where $n$ represents the order of which the the document was processed in.
-After $T1$ was applied to all documents, the union of all the sets was taken to
-form the vocabulary $V$. $V$ was then fed into the \emph{FreqDist} class from
+After the documents were tokenized, the text was piped into the transformer $T_1$ which applied a
+series of reduction operations to remove punctuation, ultimately breaking the words
+into their stems. The result of $T_1$ consisted of a set of unique stems $D_n$,
+where $n$ represents the order in which the document was processed.
+After $T_1$ was applied to all documents, the union of all the sets was taken to
+form the vocabulary $V$. Subsequently, $V$ was fed into the \emph{FreqDist} class from
 the \emph{nltk.probability} package to allow the subsequent usage of the
-\emph{WittenBellProbDist} class. By allocating $|V|$ bins, and using the
+\emph{WittenBellProbDist}. By allocating $|V|$ bins, and using the
 \emph{FreqDist} of $D_n$, we ended up with an instance of the
-\emph{WittenBellProbDist} capable of generating ${}_{V}C_{S}$ unique sets,
+\emph{WittenBellProbDist}\cite{bird2009natural} capable of generating ${}_{V}C_{S}$ unique sets,
 where $S$ represents the cardinality of the generated set. The described method
 was used to prevent clustering of the same words, and ultimately prevent the
 model from developing an aptitude for classifing an input based on the
-frequency of its instances instead of the existence of an instance.
+frequency of its instances, instead of the existence of an instance.
 
 
-After $N$ samples were generated via the \emph{WittenBellProbDist} method
+After $N$ samples were generated via the \emph{WittenBellProbDist} method\cite{bird2009natural}
 described above, we transformed the data using an instance of the
-\emph{OneHotencoder} class fit on the the vocabulary $V$.
-With this each word in $D$ had its own unique binary vector and out-of-vocabulary (OOV)
+\emph{OneHotencoder}\cite{scikit-learn} class fit on the the vocabulary $V$.
+As a result, each word in $D$ had its own unique binary vector, and out-of-vocabulary (OOV)
 words were treated as the $0$ vector with size $|V|$.
 
 \subsection{FastText Model}
 In the alternative preprocessor, we used the FastText model. Unlike the former method,
-no data generation was done. Instead, all documents were first tokenized by sentence using
-an instance of the \emph{PunktSentenceTokenizer}. The sentences were then appended to
+no data generation was done. Instead, all documents were tokenized by sentence using
+an instance of the \emph{PunktSentenceTokenizer}\cite{bird2009natural}. The sentences were then appended to
 a singular file, which served as the corpus for the FastText model. Using an implementation of
-the FastText model by \emph{gensim}, we trained an unsupervised word embeddings model
+the FastText model by \emph{gensim}\cite{rehurek2011gensim}, we trained an unsupervised word embeddings model
 capable of translating words into a $R$ dimension vector.
 After the FastText model was trained, each word in the vocublary was projected onto
 the embedding space, resulting in vectors of cardinality $R$.
 
 While each word had the same length, the sentence length varied. As a result,
-a transformer $T_2$ was created to pad the sequence given. The algorithm
+a transformer $T_2$ was created to pad the given sequences. The algorithm
 applied consisted of retrieving the vector that resulted of a coordinate-wise
 max or min. Alternating between max and min operations, we injected the sequence
-with the resulting vector from the operating described.
+with the resulting vector from the operating described\cite{2016}.
 
 \section{Training \& Achitecture}
 As there existed little data, only 20\% of the input was withheld for validation.
@@ -206,17 +199,17 @@ Hence, there is no difference in the architecture of the classifier between the 
 \subsection{Layers}
 The primary components of the CNN consisted of 2D Convolution layers,
 Max Pooling layers, a Flatten layer, Dense layers, Dropout layers and finally a Dense output layer.
-The convolution layers were used as a means of determining the most critical dimensions
-responsible in classfying an ailment while the max pooling layers were used to drop
-dimensions with little information. After the final pooling layer, the output was
-Flatten layer was used to reduce the resulting feature map onto a single column matrix, allowing it to be
+The convolution layers were used as a means of determining the dimensions
+responsible in classfying an ailment, while the max pooling layers were used to drop
+dimensions with little information. After the final pooling layer, the output was passed through a
+Flatten layer to reduce the resulting feature map onto a single column matrix, allowing it to be
 transformed in later operations.
-The resulting output was then passed to a series of alternating
+Afterwards, the resulting output was then passed to a series of alternating
 Dense and Dropout layers. The Dense layers were added to ensure
-that the CNN would  be able to fine tune its mechanisms, likely finding small details in the activation map provided
+that the CNN would be able to fine tune its mechanisms, likely finding small details in the activation map provided
 and over time, make better classifications. The Dropout layers were used to prevent overfitting
-as a result of the small dataset provided. Finally, the last Dense layer was used to reduce
-the learned values onto a probability distribution matching the cardinality of the classification size.
+as a result of the small dataset. Finally, the last Dense layer was used to reduce
+the learned values onto a probability distribution matching the cardinality of the classification size\cite{chollet2015keras}.
 
 \begin{figure}[h!]
 	\centering
@@ -265,8 +258,7 @@ in regards to classifying the randomized training data. In \ref{fig:ohep-con}, w
 model's capacity to classify our written descriptions as either depression, a
 migraine or tetanus.
 
-
-As observed in Figure 3, the model was highly effective at classing descriptions of
+As observed in \ref{fig:ohep-con}, the model was highly effective at classing descriptions of
 depression, migraines and tetanus. Depression possessed a precision of 0.83 and a
 recall of 1.0 while tetanus had a precision and recall of 1 and 0.8 respectively.
 For migraines, however, the model returned a precision and recall both of 1.
