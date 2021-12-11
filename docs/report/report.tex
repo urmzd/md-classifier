@@ -4,11 +4,16 @@
 \usepackage{url}
 \usepackage{apacite}
 \usepackage{float}
+\usepackage{authblk}
+
 \bibliographystyle{apacite}
 
-
 \title{Classification of Ailments Given Description of Symptoms}
-\author{Urmzd Mukhammadnaim \\ Ben MacDonald}
+
+\author[1]{Mukhammadnaim, Urmzd}
+\author[2]{MacDonald, Benjamin James}
+\affil[1,2]{Faculty of Computer Science, Dalhousie University}
+
 \graphicspath{{./images/}}
 
 \begin{document}
@@ -196,7 +201,7 @@ with the resulting vector from the operating described\cite{2016}.
 As there existed little data, only 20\% of the input was withheld for validation.
 In this section, we describe the reasoning for the architecture we decided upon.
 It should be noted that the architecture did not depend on the pre-processor.
-Hence, there is no difference in the architecture of the classifier between the two implementations 
+Hence, there is no difference in the architecture of the classifier between the two implementations
 (Figures \ref{fig:ftsummary} and \ref{fig:ohesummary}).
 
 \subsection{Layers}
@@ -253,7 +258,7 @@ When observing the accuracy in the first implementation,
 we found that at the beginning, validation accuracy was higher than training
 accuracy with values of 0.925 and 0.74 respectively. From the second epoch,
 training accuracy oscillated around 0.99 and validation accuracy hovered around
-0.9, as demonstrated by Figures \ref{fig:ohep-acc} and \ref{fig:ohep-rec}. 
+0.9, as demonstrated by Figures \ref{fig:ohep-acc} and \ref{fig:ohep-rec}.
 Afterwards, we mapped the
 model's capacity to classify our written descriptions as either "migraine", "depression" or "tetanus".
 
@@ -265,7 +270,7 @@ model's capacity to classify our written descriptions as either "migraine", "dep
 \end{figure}
 
 The model was highly effective at classing descriptions of
-depression, migraines and tetanus, as observed in Figure \ref{fig:ohep-con}. 
+depression, migraines and tetanus, as observed in Figure \ref{fig:ohep-con}.
 Depression had a precision of 0.83 and a
 recall of 1.0 while tetanus had a precision and recall of 1.0 and 0.8 respectively.
 For migraines, the model returned both a precision and recall of 1.0.
@@ -324,7 +329,7 @@ training data hovered around 0.65.
 	\label{fig:ft-con}
 \end{figure}
 
-We see that the model had some success at classifying custom descriptions, as visible in 
+We see that the model had some success at classifying custom descriptions, as visible in
 Figure \ref{fig:ft-con}.
 For depression, both precision and recall were 0.8, but struggled to accurately
 label migraines and tetanus. When classifying migraines, the model had a
@@ -368,7 +373,7 @@ Through our examinations, we have tested the efficacy of a convolutional neural
 network's ability to classify descriptions of symptoms of an ailment as their
 most probable diagnoses. We created two implementations of a CNN,
 one of which utilized generated training instances and One Hot Encoding while
-the other used sentences from the corpus and a FastText embedding preprocessor\cite{rehurek2011gensim}. 
+the other used sentences from the corpus and a FastText embedding preprocessor\cite{rehurek2011gensim}.
 Through testing
 the two models' ability to classify our written accounts of symptoms, we found
 that the first implementation was more effective at accurately labelling
