@@ -6,6 +6,7 @@
 ## Table of Contents
 
 - [Proposal](#proposal)
+- [Research Project Paper](#research-project-paper)
 - [Contributing](#contributing)
   - [Prerequisities](#prerequisities)
   - [Building](#building)
@@ -39,7 +40,7 @@ An example scenario would go as follows:
 
 The full research paper can be found under [`report.pdf`](./report.pdf)
 
-## Contributioning
+## Contributing
 
 ### Prerequisities
 
