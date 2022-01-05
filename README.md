@@ -47,9 +47,9 @@ The full research paper can be found under [`report.pdf`](./report.pdf)
 - Mandatory - Python3.7+
 - Mandatory - Pip3
 
-## Building
+### Building
 
-### Set Up
+#### Set Up
 
 ```bash
   # Create the virtual enviroment.
@@ -64,7 +64,7 @@ The full research paper can be found under [`report.pdf`](./report.pdf)
   python -m ipykernel install --user --name=mdnlp
 ```
 
-### Tear Down
+#### Tear Down
 
 ```bash
   # Track dependencies.
@@ -79,7 +79,7 @@ The full research paper can be found under [`report.pdf`](./report.pdf)
   jupyter kernelspec uninstall mdnlp
 ```
 
-## Testing
+### Testing
 
 > This project original included `pytest` unit tests, however, this is no longer the case. As the project was interactive in nature, we opted to use 'Google Collab'. However, this is not to say the code is untestable, most of it was written of using the functional programming paradigm, and can be easily refactored into a script.
 
