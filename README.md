@@ -1,32 +1,31 @@
 # MD Classifier
 
->> In this paper, we address the challenges experienced in the preliminary research phase
-of ailment diagnosis performed by many individuals prior to visiting a
-healthcare professional. Due to the large quantity of varying results appearing
-once someone searches their current symptoms, we developed a convolutional
-neural network (CNN) that reduces this clutter by returning only the most
-probable medical condition given the user's description.
-To address the problem, we introduce two CNN implementations with different
-preprocessors. The first implementation explores the use of a One Hot Encoder,
-while the second implementation utilizes a FastText model trained via
-unsupervised learning. Through the retrieval of open source data from various medical platforms such
-as UpToDate and Mayo Clinic, a recall value of 90\% is achieved.
-
+> In this paper, we address the challenges experienced in the preliminary research phase
+> of ailment diagnosis performed by many individuals prior to visiting a
+> healthcare professional. Due to the large quantity of varying results appearing
+> once someone searches their current symptoms, we developed a convolutional
+> neural network (CNN) that reduces this clutter by returning only the most
+> probable medical condition given the user's description.
+> To address the problem, we introduce two CNN implementations with different
+> preprocessors. The first implementation explores the use of a One Hot Encoder,
+> while the second implementation utilizes a FastText model trained via
+> unsupervised learning. Through the retrieval of open source data from various medical platforms such
+> as UpToDate and Mayo Clinic, a recall value of 90\% is achieved.
 
 ## Table of Contents
 
 - [Proposal](#proposal)
 - [Research Project Paper](#research-project-paper)
-- [Contributing](#contributing)
+- [Usage](#usage)
   - [Prerequisities](#prerequisities)
   - [Building](#building)
   - [Testing](#testing)
 
 ## Proposal
 
-> TLDR; The [proposal](./p1.pdf) describes the problem and two possible approaches. One involves the use of CNN,
-> and the other describes a solution which uses an N-Gram model. In the end, we decided to only pursue the
-> CNN due to time-constraints.
+TLDR; The [proposal](./p1.pdf) describes the problem and two possible approaches. One involves the use of CNN,
+and the other describes a solution which uses an N-Gram model. In the end, we decided to only pursue the
+CNN due to time-constraints.
 
 An example scenario would go as follows:
 
@@ -80,7 +79,7 @@ The full research paper can be found under [`report.pdf`](./report.pdf)
 
 ### Testing
 
-> This project original included `pytest` unit tests, however, this is no longer the case. 
+> This project original included `pytest` unit tests, however, this is no longer the case.
 > As the project was interactive in nature, we opted to use 'Google Collab'.
 > However, this is not to say the code is not testable, most of it was written of using the functional programming paradigm, and can be easily refactored into a script, which can then be tested with ease.
 
