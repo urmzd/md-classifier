@@ -1,7 +1,17 @@
 # MD NLP
 
-> A collection of Convolutional Neural Networks (CNNs) that attempt to classify the
-> ailment an individual is attempting to describe using the symptoms provided.
+>> In this paper, we address the challenges experienced in the preliminary research phase
+of ailment diagnosis performed by many individuals prior to visiting a
+healthcare professional. Due to the large quantity of varying results appearing
+once someone searches their current symptoms, we developed a convolutional
+neural network (CNN) that reduces this clutter by returning only the most
+probable medical condition given the user's description.
+To address the problem, we introduce two CNN implementations with different
+preprocessors. The first implementation explores the use of a One Hot Encoder,
+while the second implementation utilizes a FastText model trained via
+unsupervised learning. Through the retrieval of open source data from various medical platforms such
+as UpToDate and Mayo Clinic, a recall value of 90\% is achieved.
+
 
 ## Table of Contents
 
@@ -26,21 +36,9 @@ An example scenario would go as follows:
 
 ### Research Project Paper
 
-> In this paper, we address the challenges experienced in the preliminary research phase
-> of ailment diagnosis performed by many individuals prior to visiting a
-> healthcare professional. Due to the large quantity of varying results appearing
-> once someone searches their current symptoms, we developed a convolutional
-> neural network (CNN) that reduces this clutter by returning only the most
-> probable medical condition given the user's description.
-> To address the problem, we introduce two CNN implementations with different
-> preprocessors. The first implementation explores the use of a One Hot Encoder,
-> while the second implementation utilizes a FastText model trained via
-> unsupervised learning. Through the retrieval of open source data from various medical platforms such
-> as UpToDate and Mayo Clinic, a recall value of 90\% is achieved.
-
 The full research paper can be found under [`report.pdf`](./report.pdf)
 
-## Contributing
+## Usage
 
 ### Prerequisities
 
@@ -82,7 +80,9 @@ The full research paper can be found under [`report.pdf`](./report.pdf)
 
 ### Testing
 
-> This project original included `pytest` unit tests, however, this is no longer the case. As the project was interactive in nature, we opted to use 'Google Collab'. However, this is not to say the code is untestable, most of it was written of using the functional programming paradigm, and can be easily refactored into a script.
+> This project original included `pytest` unit tests, however, this is no longer the case. 
+> As the project was interactive in nature, we opted to use 'Google Collab'.
+> However, this is not to say the code is not testable, most of it was written of using the functional programming paradigm, and can be easily refactored into a script, which can then be tested with ease.
 
 This project uses `pytest` for its unit-tests.
 To find more information about the configuration used, check `./pytest.ini`.
