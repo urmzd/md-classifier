@@ -1,4 +1,4 @@
-# MD NLP
+# MD Classifier
 
 >> In this paper, we address the challenges experienced in the preliminary research phase
 of ailment diagnosis performed by many individuals prior to visiting a
