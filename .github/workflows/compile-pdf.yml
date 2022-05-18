@@ -1,5 +1,9 @@
 name: Build PDF
-on: [push]
+on: 
+  push:
+    paths:
+      - "docs/**/*.tex"
+    
 jobs:
   build:
     runs-on: ubuntu-latest
