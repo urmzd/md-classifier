@@ -1,3 +1,5 @@
+> **Archived.** This was a group project / final assessment for [CSCI 4152/6509 — Natural Language Processing](https://web.cs.dal.ca/~vlado/csci6509/) at Dalhousie University, part of the [Artificial Intelligence & Intelligent Systems certificate](https://www.dal.ca/faculty/computerscience/undergraduate-programs/program-planning/certificates.html) (undergraduate/graduate mixed course). It is no longer actively maintained.
+
 # MD Classifier
 
 A convolutional neural network (CNN) that predicts medical conditions from natural language symptom descriptions. Given a text input like *"My head is hurting"*, the model returns the most probable diagnosis (e.g., **Migraine**).
