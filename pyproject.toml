@@ -1,0 +1,24 @@
+[project]
+name = "md-classifier"
+version = "1.0.0"
+description = "CNN classifier for medical conditions from symptom descriptions — Dalhousie University CSCI 4152/6509 course project."
+readme = "README.md"
+license = "Apache-2.0"
+authors = [
+    { name = "Urmzd Mukhammadnaim", email = "hello@urmzd.com" },
+    { name = "Ben MacDonald", email = "ben.macdonald@dal.ca" },
+]
+requires-python = ">=3.12"
+dependencies = [
+    "tensorflow>=2.16",
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "scikit-learn>=1.4",
+    "nltk>=3.8",
+    "gensim>=4.3",
+    "matplotlib>=3.8",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
